@@ -3,41 +3,748 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zhen Wu Portfolio</title>
+  <title>Zhen Wu | Portfolio</title>
+  <meta
+    name="description"
+    content="Academic portfolio of Zhen Wu, Postdoctoral Researcher in Geography and Geospatial Data Science."
+  />
   <style>
+    :root {
+      --bg: #f5f4f1;
+      --paper: #ffffff;
+      --text: #111111;
+      --muted: #666666;
+      --line: #dedcd6;
+      --soft: #efede7;
+      --accent: #1e3a34;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f7f7f5;
-      color: #111;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(245, 244, 241, 0.82);
+      border-bottom: 1px solid rgba(222, 220, 214, 0.8);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 36px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 650;
+    }
+
+    .hero-subtitle {
+      margin-top: 22px;
+      max-width: 760px;
+      font-size: 20px;
+      color: #2b2b2b;
+      line-height: 1.8;
+    }
+
+    .hero-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card .label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .meta-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .meta-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .meta-item div {
+      font-size: 15px;
+    }
+
+    .section {
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .section-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .section-content h2 {
+      margin: 0 0 18px 0;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .lead {
+      font-size: 18px;
+      color: #2b2b2b;
+      line-height: 1.9;
+      margin: 0;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .card-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.3;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .time {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .org {
+      color: var(--muted);
+      margin: 6px 0 0 0;
+      font-size: 15px;
+    }
+
+    .card p,
+    .card li {
+      color: #333;
+      font-size: 15px;
+    }
+
+    .card ul {
+      margin: 14px 0 0 18px;
+      padding: 0;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pub-item {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      font-size: 15px;
+    }
+
+    .pub-item strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .simple-list {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .simple-list li {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      font-size: 15px;
+    }
+
+    .photo-placeholder {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #ece9e2, #f8f7f4);
+      border: 1px dashed #c6c1b7;
+      border-radius: 24px;
+      min-height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
     }
-    .card {
-      max-width: 700px;
-      background: white;
-      padding: 48px;
-      border-radius: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+    .footer {
+      padding: 36px 0 70px;
+      color: var(--muted);
+      font-size: 14px;
     }
-    h1 {
-      margin: 0 0 16px 0;
-      font-size: 42px;
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .section-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .card-top {
+        flex-direction: column;
+      }
+
+      .time {
+        white-space: normal;
+      }
     }
-    p {
-      line-height: 1.8;
-      color: #444;
-      font-size: 18px;
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-subtitle,
+      .lead {
+        font-size: 17px;
+      }
+
+      .card,
+      .hero-card,
+      .pub-item,
+      .simple-list li {
+        padding: 18px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Zhen Wu</h1>
-    <p>Postdoctoral Researcher in Geography and Geospatial Data Science</p>
-    <p>This is my portfolio website, hosted on GitHub Pages.</p>
-  </div>
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">Zhen Wu</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#appointments">Appointments</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#activities">Activities</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Academic Portfolio</span>
+          <h1>Zhen Wu</h1>
+          <p class="hero-subtitle">
+            Postdoctoral researcher in geography and geospatial data science,
+            working at the intersection of GIS, remote sensing, spatiotemporal modeling,
+            climate change, land use dynamics, and carbon sink estimation.
+          </p>
+        </div>
+
+        <aside class="hero-card">
+          <div class="label">Profile</div>
+          <div class="meta-list">
+            <div class="meta-item">
+              <small>Current Role</small>
+              <div>Postdoctoral Researcher, The Chinese University of Hong Kong</div>
+            </div>
+            <div class="meta-item">
+              <small>Email</small>
+              <div>zhenwu01@cuhk.edu.hk</div>
+            </div>
+            <div class="meta-item">
+              <small>Phone</small>
+              <div>(+852) 6544 9699</div>
+            </div>
+            <div class="meta-item">
+              <small>Focus Areas</small>
+              <div>Geospatial Data Science · GIS · Remote Sensing · Carbon & Climate Research</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container section-grid">
+        <div class="section-title">About</div>
+        <div class="section-content">
+          <h2>Researching climate, land, and environmental change through geospatial intelligence.</h2>
+          <p class="lead">
+            My work focuses on integrating geospatial data science, remote sensing, and spatiotemporal modeling
+            to study climate change, carbon sink dynamics, land use transformation, and environmental risk.
+            I develop scalable analytical workflows using Google Earth Engine, Python, KNIME, and GIS platforms
+            to translate complex earth observation and socioeconomic data into rigorous and policy-relevant insights.
+          </p>
+
+          <div class="pill-list">
+            <span class="pill">Geospatial Data Science</span>
+            <span class="pill">GIS & Remote Sensing</span>
+            <span class="pill">Spatiotemporal Modeling</span>
+            <span class="pill">Carbon Sink Estimation</span>
+            <span class="pill">Climate Change Research</span>
+            <span class="pill">Land Use / Land Cover Change</span>
+            <span class="pill">Google Earth Engine</span>
+            <span class="pill">Python & KNIME</span>
+          </div>
+
+          <div class="photo-placeholder">
+            You can place your portrait or one research image here later.<br />
+            Example file name: <strong>profile.jpg</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="appointments" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Appointments</div>
+        <div class="section-content">
+          <h2>Academic and professional appointments</h2>
+          <div class="card-list">
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Postdoctoral Researcher</h3>
+                  <p class="org">The Chinese University of Hong Kong, Hong Kong SAR, China</p>
+                </div>
+                <div class="time">2025/08 – Present</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Academic Researcher</h3>
+                  <p class="org">School of Geography and Ocean Science, Nanjing University, China</p>
+                </div>
+                <div class="time">2024/07 – 2025/07</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Project Mentor</h3>
+                  <p class="org">Spatial Data Lab, Center for Geographic Analysis, Harvard University</p>
+                </div>
+                <div class="time">2024/07 – Present</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Career Mentor</h3>
+                  <p class="org">School of Geography and Ocean Science, Nanjing University, China</p>
+                </div>
+                <div class="time">2025/03 – 2027/08</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Research and Teaching Assistant</h3>
+                  <p class="org">Zhejiang University, China</p>
+                </div>
+                <div class="time">2019/07 – 2020/07</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Education</div>
+        <div class="section-content">
+          <h2>Education and international training</h2>
+          <div class="card-list">
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Ph.D. in Geography</h3>
+                  <p class="org">School of Geography and Ocean Science, Nanjing University, China</p>
+                </div>
+                <div class="time">2020/09 – 2024/06</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Visiting Scholar</h3>
+                  <p class="org">Center for Geographic Analysis (CGA), Harvard University, MA, US</p>
+                </div>
+                <div class="time">2022/09 – 2023/09</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>M.S. in Physical Geography</h3>
+                  <p class="org">East China Normal University, Shanghai, China</p>
+                </div>
+                <div class="time">2016/09 – 2019/06</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Visiting Research Scholar</h3>
+                  <p class="org">CIESIN, Columbia University, NY, US</p>
+                </div>
+                <div class="time">2018/02 – 2018/08</div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>B.S. in Geography Science</h3>
+                  <p class="org">Hunan University of Science and Technology, Hunan, China</p>
+                </div>
+                <div class="time">2011/09 – 2015/06</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Projects</div>
+        <div class="section-content">
+          <h2>Selected research projects</h2>
+          <div class="card-list">
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
+                </div>
+                <div class="time">2022/07 – 2025/07</div>
+              </div>
+              <ul>
+                <li>Led carbon sink modeling and estimation along the Yangtze River.</li>
+                <li>Analyzed spatiotemporal trends from 1990 to the present to identify degraded ecosystems and assess carbon sink dynamics.</li>
+                <li>Provided policy and technical recommendations to support low-carbon development strategies.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
+                </div>
+                <div class="time">2021/09 – 2024/06</div>
+              </div>
+              <ul>
+                <li>Developed carbon-related models using open-source satellite data to examine land use and carbon cycle dynamics.</li>
+                <li>Analyzed spatiotemporal changes in land use and assessed carbon neutrality potential.</li>
+                <li>Contributed to project coordination and methodological design.</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div>
+                  <h3>Spatial Data Lab Project, Harvard University</h3>
+                </div>
+                <div class="time">2022/09 – 2023/09</div>
+              </div>
+              <ul>
+                <li>Led the development of Geo-Image spatial analysis tools and KNIME workflow nodes.</li>
+                <li>Created case studies demonstrating spatiotemporal satellite data analysis workflows.</li>
+                <li>Organized and delivered KNIME training workshops for researchers.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Publications</div>
+        <div class="section-content">
+          <h2>Selected publications and research outputs</h2>
+          <div class="pub-list">
+            <div class="pub-item">
+              <strong>2025</strong> — Wu, Z., Huang, X., Liu, X., et al.
+              <em>Land use changes and their effects on poverty in Inner Mongolia, northern China.</em>
+              Geography and Sustainability, 6(4): 100269.
+            </div>
+
+            <div class="pub-item">
+              <strong>2024</strong> — Wu, Z., Wang, X., Chen, M., et al.
+              <em>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</em>
+              Plant and Soil, 500: 495–514.
+            </div>
+
+            <div class="pub-item">
+              <strong>2022</strong> — Wu, Z., Huang, X., Chen, R., et al.
+              <em>The United States and China on the paths and policies to carbon neutrality.</em>
+              Journal of Environmental Management, 320: 115785.
+              <strong>ESI Highly Cited Paper</strong>
+            </div>
+
+            <div class="pub-item">
+              <strong>2021</strong> — Wu, Z., Chen, R., Meadows, M. E., et al.
+              <em>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</em>
+              Ecological Indicators, 126: 107650.
+            </div>
+
+            <div class="pub-item">
+              <strong>2019</strong> — Wu, Z., Chen, R., Meadows, M. E., et al.
+              <em>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</em>
+              Land Use Policy, 87: 104080.
+              <strong>ESI Highly Cited Paper</strong>
+            </div>
+
+            <div class="pub-item">
+              <strong>Patent · 2024</strong> — Wu, Z., and Huang, X.
+              <em>A method for estimating carbon density in terrestrial ecosystems based on multi-source remote sensing data.</em>
+              Chinese National Patent (authorized), CN118037320A.
+            </div>
+
+            <div class="pub-item">
+              <strong>Under Review</strong> — Wu, Z., Liu, X., Liu, L., et al.
+              <em>Dynamics of Carbon Density in China's Terrestrial Ecosystems from 1990 to 2022.</em>
+              Environmental Science & Technology.
+            </div>
+
+            <div class="pub-item">
+              <strong>Under Review</strong> — Wu, Z., Huang, X., Meadows, M. E.
+              <em>A Comprehensive Re-evaluation of China’s Terrestrial Carbon Storage through Machine Learning.</em>
+              Global Change Biology.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Activities</div>
+        <div class="section-content">
+          <h2>Awards, presentations, and teaching</h2>
+
+          <div class="two-col">
+            <div>
+              <h3 style="margin-top:0; margin-bottom:14px;">Awards</h3>
+              <ul class="simple-list">
+                <li>2024 — Second Prize for Outstanding Papers, Key Laboratory of Carbon Neutrality and Land Spatial Optimization, Ministry of Natural Resources, China</li>
+                <li>2023 — First Prize of Excellent Scholarship, Nanjing University</li>
+                <li>2022 — Excellent Student Scholarship, Nanjing University</li>
+                <li>2017 — Third Prize, 14th China Graduate Mathematical Modelling Contest (Team Captain)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 style="margin-top:0; margin-bottom:14px;">Selected Presentations</h3>
+              <ul class="simple-list">
+                <li>2024 AAG Annual Meeting — Session Organizer & Chair; presentation on dynamic evolution of carbon storage in China's terrestrial ecosystems</li>
+                <li>2024 World Geography Annual Conference — Presentation on spatiotemporal evolution of carbon storage in China's terrestrial ecosystems</li>
+                <li>2024 Spatiotemporal Innovation Forum, Shanghai — Presentation on Geo-AI model application in remote sensing workflow</li>
+                <li>2023 Symposium on Spatiotemporal Data Science, Harvard University — Presentation on forest change and carbon storage research in China</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:18px;">
+            <h3 style="margin-top:0;">Teaching & Workshops</h3>
+            <ul>
+              <li>Workshop Teacher — The Application of Remote Sensing Data in Carbon Density, Harvard University (2023)</li>
+              <li>Workshop Teacher — Geo-AI models application in remote sensing data using KNIME, Harbin (2023)</li>
+              <li>Teaching Assistant — GIS and Cartography related workshops, Harvard University (2022–2023)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container section-grid">
+        <div class="section-title">Contact</div>
+        <div class="section-content">
+          <h2>Open to academic collaboration and research opportunities</h2>
+          <div class="card">
+            <p style="margin-top:0;">
+              For research collaboration, postdoctoral communication, invited talks, or academic opportunities,
+              please feel free to get in touch.
+            </p>
+            <p><strong>Email:</strong> zhenwu01@cuhk.edu.hk</p>
+            <p><strong>Phone:</strong> (+852) 6544 9699</p>
+            <p style="margin-bottom:0;"><strong>GitHub:</strong> github.com/zhenwu013</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 Zhen Wu · Academic Portfolio
+    </div>
+  </footer>
 </body>
 </html>
