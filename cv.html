@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhen Wu | CV</title>
+  <meta name="description" content="Detailed academic CV page for Zhen Wu." />
+  <style>
+    :root{
+      --bg:#f6fbff;
+      --card:#ffffff;
+      --text:#163149;
+      --muted:#617b91;
+      --line:#d7e8f6;
+      --accent:#4697f6;
+      --accent2:#6fd0ff;
+      --shadow:0 10px 28px rgba(70,120,170,.08);
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Arial, sans-serif;
+      background:linear-gradient(180deg,#eef8ff 0%, #f7fbff 24%, #ffffff 100%);
+      color:var(--text);
+      line-height:1.72;
+    }
+
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
+
+    .nav{
+      position:sticky; top:0; z-index:30;
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-inner{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:18px; padding:16px 0;
+    }
+
+    .brand{font-weight:800; font-size:15px; letter-spacing:.04em}
+    .nav-links{display:flex; gap:18px; flex-wrap:wrap}
+    .nav-links a{font-size:14px; color:var(--muted)}
+
+    .page-head{
+      padding:46px 0 26px;
+    }
+
+    .page-head h1{
+      margin:0;
+      font-size:clamp(34px, 6vw, 58px);
+      line-height:1;
+      letter-spacing:-.04em;
+    }
+
+    .page-head p{
+      margin:14px 0 0;
+      max-width:760px;
+      color:#3a5973;
+      font-size:18px;
+    }
+
+    .section{
+      padding:18px 0;
+    }
+
+    .section-grid{
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    .label{
+      font-size:12px;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--muted);
+      padding-top:14px;
+      font-weight:700;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+
+    .card h2{
+      margin:0 0 14px;
+      font-size:30px;
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+
+    .note{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .item{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      background:#fbfdff;
+    }
+
+    .item h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.25;
+    }
+
+    .sub{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .time{
+      display:inline-block;
+      margin-top:10px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#eef7ff;
+      color:#397cc0;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+
+    .stack{display:grid; gap:16px}
+
+    .project{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+      background:#fcfeff;
+    }
+
+    .project h3{
+      margin:0;
+      font-size:21px;
+      line-height:1.3;
+    }
+
+    .project p{
+      margin:10px 0 0;
+      color:#3d5c74;
+      font-size:15px;
+    }
+
+    .project ul{
+      margin:14px 0 0 18px;
+      padding:0;
+    }
+
+    .project li{
+      margin-bottom:8px;
+      font-size:15px;
+      color:#2f4e66;
+    }
+
+    .talk-list, .pub-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .talk, .pub{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      background:#fcfeff;
+    }
+
+    .talk strong, .pub strong{
+      display:block;
+      margin-bottom:6px;
+      font-size:16px;
+      line-height:1.45;
+      color:#163149;
+    }
+
+    .talk span, .pub span{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .skills{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .skill{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#f7fbff;
+      font-size:14px;
+      color:#244660;
+    }
+
+    .footer{
+      padding:26px 0 52px;
+      text-align:center;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    @media (max-width: 900px){
+      .section-grid, .grid-2{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 640px){
+      .nav-inner{flex-direction:column; align-items:flex-start}
+      .page-head p{font-size:17px}
+      .card{padding:18px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Zhen Wu</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#education">Education</a>
+        <a href="#appointments">Appointments</a>
+        <a href="#projects">Projects</a>
+        <a href="#talks">Talks</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-head">
+      <h1>Curriculum Vitae</h1>
+      <p>
+        Detailed academic profile including education, appointments, selected projects, presentations, publications, and technical skills.
+      </p>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-grid">
+        <div class="label">Education</div>
+        <div class="card">
+          <h2>Education</h2>
+          <div class="grid-2">
+            <div class="item">
+              <h3>Ph.D. in Geography</h3>
+              <div class="sub">Nanjing University, China</div>
+              <div class="time">2020/09 – 2024/06</div>
+            </div>
+            <div class="item">
+              <h3>Visiting Scholar</h3>
+              <div class="sub">Center for Geographical Analysis, Harvard University</div>
+              <div class="time">2022/09 – 2023/09</div>
+            </div>
+            <div class="item">
+              <h3>M.S. in Physical Geography</h3>
+              <div class="sub">East China Normal University, China</div>
+              <div class="time">2016/09 – 2019/06</div>
+            </div>
+            <div class="item">
+              <h3>Visiting Scholar</h3>
+              <div class="sub">CIESIN, Columbia University</div>
+              <div class="time">2018/02 – 2018/08</div>
+            </div>
+            <div class="item">
+              <h3>B.S. in Geography Science</h3>
+              <div class="sub">Hunan University of Science and Technology, China</div>
+              <div class="time">2011/09 – 2015/06</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="appointments" class="section">
+      <div class="section-grid">
+        <div class="label">Appointments</div>
+        <div class="card">
+          <h2>Academic & Professional Appointments</h2>
+          <div class="grid-2">
+            <div class="item">
+              <h3>Postdoctoral Researcher</h3>
+              <div class="sub">The Chinese University of Hong Kong</div>
+              <div class="time">2025/08 – Present</div>
+            </div>
+            <div class="item">
+              <h3>Academic Researcher</h3>
+              <div class="sub">Nanjing University</div>
+              <div class="time">2024/07 – 2025/07</div>
+            </div>
+            <div class="item">
+              <h3>Research and Teaching Assistant</h3>
+              <div class="sub">Zhejiang University</div>
+              <div class="time">2019/07 – 2020/07</div>
+            </div>
+            <div class="item">
+              <h3>Career Mentor</h3>
+              <div class="sub">Nanjing University</div>
+              <div class="time">2025/03 – 2027/08</div>
+            </div>
+            <div class="item">
+              <h3>Project Mentor</h3>
+              <div class="sub">Spatial Data Lab, Harvard University</div>
+              <div class="time">2024/07 – Present</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-grid">
+        <div class="label">Projects</div>
+        <div class="card">
+          <h2>Selected Research Projects</h2>
+
+          <div class="stack">
+            <div class="project">
+              <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
+              <div class="time">2022/07 – 2025/07</div>
+              <ul>
+                <li>Led carbon sink modeling and estimation along the Yangtze River.</li>
+                <li>Analyzed spatiotemporal trends from 1990 to present to identify degraded ecosystems and assess carbon sink dynamics.</li>
+                <li>Provided policy and technical recommendations for low-carbon development strategies.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
+              <div class="time">2021/09 – 2024/06</div>
+              <ul>
+                <li>Developed carbon-related models using open-source satellite data.</li>
+                <li>Analyzed land use change and carbon neutrality potential.</li>
+                <li>Contributed to methodological design and project coordination.</li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h3>Spatial Data Lab Project, Harvard University</h3>
+              <div class="time">2022/09 – 2023/09</div>
+              <ul>
+                <li>Developed Geo-Image spatial analysis tools and KNIME workflow nodes.</li>
+                <li>Created case studies for spatiotemporal satellite data analysis.</li>
+                <li>Organized and delivered KNIME workshops.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="talks" class="section">
+      <div class="section-grid">
+        <div class="label">Talks</div>
+        <div class="card">
+          <h2>Selected Presentations</h2>
+          <div class="talk-list">
+            <div class="talk">
+              <strong>AAG Annual Meeting 2024 — Session Organizer & Chair; “Dynamic Evolution of Carbon Storage in China’s Terrestrial Ecosystems from 1990 to 2022”</strong>
+              <span>Hawaii, US · Apr. 2024</span>
+            </div>
+            <div class="talk">
+              <strong>“Study on the spatiotemporal evolution characteristics of carbon storage in China’s terrestrial ecosystems”</strong>
+              <span>World Geography Annual Conference, Shanghai · Nov. 2024</span>
+            </div>
+            <div class="talk">
+              <strong>“Geo-AI model application in remote sensing data based on workflow”</strong>
+              <span>Spatiotemporal Innovation Forum, Shanghai · Aug. 2024</span>
+            </div>
+            <div class="talk">
+              <strong>“Forest change and its carbon storage research in China from 1990 to 2021”</strong>
+              <span>Symposium on Spatiotemporal Data Science, Harvard University · Jul. 2023</span>
+            </div>
+            <div class="talk">
+              <strong>“Forest change and its litter carbon storage in China from 1990 to 2021”</strong>
+              <span>AAG Annual Meeting, Denver · Mar. 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="section-grid">
+        <div class="label">Publications</div>
+        <div class="card">
+          <h2>Selected Publications</h2>
+          <div class="pub-list">
+            <div class="pub">
+              <strong>Land use changes and their effects on poverty in Inner Mongolia, northern China.</strong>
+              <span>Geography and Sustainability, 2025</span>
+            </div>
+            <div class="pub">
+              <strong>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</strong>
+              <span>Plant and Soil, 2024</span>
+            </div>
+            <div class="pub">
+              <strong>The United States and China on the paths and policies to carbon neutrality.</strong>
+              <span>Journal of Environmental Management, 2022 · ESI Highly Cited Paper</span>
+            </div>
+            <div class="pub">
+              <strong>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</strong>
+              <span>Ecological Indicators, 2021</span>
+            </div>
+            <div class="pub">
+              <strong>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</strong>
+              <span>Land Use Policy, 2019 · ESI Highly Cited Paper</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-grid">
+        <div class="label">Skills</div>
+        <div class="card">
+          <h2>Technical Skills</h2>
+          <div class="skills">
+            <span class="skill">Google Earth Engine (GEE)</span>
+            <span class="skill">ArcGIS Pro</span>
+            <span class="skill">ArcMap</span>
+            <span class="skill">QGIS</span>
+            <span class="skill">KNIME</span>
+            <span class="skill">ENVI</span>
+            <span class="skill">SPSS</span>
+            <span class="skill">Origin</span>
+            <span class="skill">Python</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © 2026 Zhen Wu
+  </footer>
+</body>
+</html>
