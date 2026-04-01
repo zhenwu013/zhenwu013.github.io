@@ -3,257 +3,179 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zhen Wu | Academic Portfolio</title>
+  <title>Zhen Wu | Geospatial Data Science</title>
   <meta name="description" content="Academic homepage of Zhen Wu, Postdoctoral Researcher in Geography and Geospatial Data Science." />
-  <style>
-    :root{
-      --bg1:#eef8ff;
-      --bg2:#dff0ff;
-      --bg3:#f8fcff;
-      --text:#17324a;
-      --muted:#617b91;
-      --line:rgba(78,143,202,.14);
-      --card:rgba(255,255,255,.78);
-      --accent:#4a9fff;
-      --accent2:#78d4ff;
-      --shadow:0 18px 40px rgba(83,140,190,.12);
-      --max:1120px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:Inter, "Segoe UI", Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at 10% 10%, rgba(120,212,255,.28), transparent 22%),
-        radial-gradient(circle at 88% 15%, rgba(74,159,255,.18), transparent 20%),
-        linear-gradient(135deg,var(--bg1),var(--bg2) 45%,var(--bg3));
-      min-height:100vh;
-      line-height:1.7;
-    }
-
-    a{text-decoration:none;color:inherit}
-    .container{width:min(var(--max), calc(100% - 32px));margin:0 auto}
-
-    .nav{
-      position:sticky; top:0; z-index:30;
-      backdrop-filter:blur(12px);
-      background:rgba(238,248,255,.72);
-      border-bottom:1px solid rgba(78,143,202,.10);
-    }
-
-    .nav-inner{
-      display:flex; justify-content:space-between; align-items:center;
-      padding:16px 0; gap:16px;
-    }
-
-    .brand{font-weight:800; letter-spacing:.04em; font-size:15px}
-    .nav-links{display:flex; gap:18px; flex-wrap:wrap}
-    .nav-links a{font-size:14px; color:var(--muted)}
-
-    .hero{
-      min-height:calc(100vh - 66px);
-      display:grid;
-      place-items:center;
-      padding:48px 0 56px;
-    }
-
-    .hero-card{
-      width:100%;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.65);
-      backdrop-filter:blur(14px);
-      border-radius:32px;
-      box-shadow:var(--shadow);
-      padding:44px;
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:28px;
-      align-items:center;
-    }
-
-    .eyebrow{
-      display:inline-block;
-      font-size:12px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:16px;
-      font-weight:700;
-    }
-
-    h1{
-      margin:0;
-      font-size:clamp(42px, 8vw, 86px);
-      line-height:.94;
-      letter-spacing:-.05em;
-    }
-
-    .gradient{
-      display:block;
-      background:linear-gradient(90deg,#489cff,#67c9ff,#72d8d4);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .intro{
-      margin-top:20px;
-      max-width:700px;
-      font-size:19px;
-      color:#34536d;
-    }
-
-    .highlights{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top:22px;
-    }
-
-    .pill{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      font-size:14px;
-      color:#2c4d67;
-    }
-
-    .actions{
-      margin-top:28px;
-      display:flex; flex-wrap:wrap; gap:12px;
-    }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:13px 18px; border-radius:999px;
-      font-size:14px; font-weight:700;
-      transition:.2s ease;
-    }
-
-    .btn:hover{transform:translateY(-2px)}
-
-    .btn-primary{
-      background:linear-gradient(90deg, var(--accent), var(--accent2));
-      color:white;
-      box-shadow:0 10px 22px rgba(74,159,255,.18);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.88);
-      border:1px solid var(--line);
-      color:var(--text);
-    }
-
-    .side{
-      display:grid;
-      gap:14px;
-    }
-
-    .mini{
-      background:rgba(255,255,255,.76);
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:18px 18px;
-    }
-
-    .mini small{
-      display:block;
-      font-size:11px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:6px;
-      font-weight:700;
-    }
-
-    .mini div{
-      font-size:15px;
-      color:#244660;
-    }
-
-    .footer{
-      padding:0 0 28px;
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    @media (max-width: 900px){
-      .hero-card{grid-template-columns:1fr; padding:28px}
-    }
-
-    @media (max-width: 640px){
-      .nav-inner{flex-direction:column; align-items:flex-start}
-      .intro{font-size:17px}
-      .hero{padding-top:28px}
-    }
-  </style>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Zhen Wu</div>
-      <nav class="nav-links">
-        <a href="cv.html">CV</a>
-        <a href="https://www.linkedin.com/in/zhen-wu-375510266/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/zhenwu013" target="_blank">GitHub</a>
-      </nav>
-    </div>
-  </header>
 
-  <main class="hero container">
-    <section class="hero-card">
-      <div>
-        <span class="eyebrow">Academic Homepage</span>
-        <h1>
-          Zhen Wu
-          <span class="gradient">Geospatial Data Science</span>
-        </h1>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="profile-card">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" alt="Zhen Wu Profile Photo" class="profile-img">
+        <h1 class="profile-name">Zhen Wu</h1>
+        <div class="profile-title">Geospatial Data Science</div>
+        
+        <nav class="nav-links">
+          <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a>
+          <a href="#focus" class="nav-link"><i class="fa-solid fa-microscope"></i> Focus</a>
+          <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+          <a href="#work" class="nav-link"><i class="fa-solid fa-briefcase"></i> Work</a>
+          <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+          <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
+          <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+          <a href="https://www.linkedin.com/in/zhen-wu-375510266/" target="_blank" class="nav-link" style="margin-top: 1rem;"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/zhenwu013" target="_blank" class="nav-link"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="cv.html" class="nav-link"><i class="fa-solid fa-id-card"></i> CV Overview</a>
+        </nav>
+      </div>
+    </aside>
 
-        <p class="intro">
-          Postdoctoral Researcher in Geography and Geospatial Data Science, working on climate change, carbon sink modeling, land use dynamics, and environment–human interactions.
-        </p>
-
+    <main class="main-content">
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+          <p>
+            I am a Postdoctoral Researcher in Geography and Geospatial Data Science. 
+            My work lies at the intersection of climate change, carbon sink modeling, land use dynamics, and environment–human interactions.
+          </p>
+          <p>
+            Through advanced spatiotemporal modeling and remote sensing, I aim to unravel complex geographic phenomena and provide actionable data-driven insights for sustainable environmental management.
+          </p>
+        </div>
+        
         <div class="highlights">
           <span class="pill">GIS & Remote Sensing</span>
           <span class="pill">Spatiotemporal Modeling</span>
           <span class="pill">Carbon Sink Research</span>
           <span class="pill">Google Earth Engine</span>
+          <span class="pill">Data Visualization</span>
         </div>
+      </section>
 
-        <div class="actions">
-          <a class="btn btn-primary" href="cv.html">View Full CV</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/zhen-wu-375510266/" target="_blank">LinkedIn</a>
+      <section id="focus">
+        <h2 class="section-title">Focus & Expertise</h2>
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-icon"><i class="fa-solid fa-building-columns"></i></div>
+            <div class="bento-title">Current Position</div>
+            <div class="bento-desc">
+              Postdoctoral Researcher<br>
+              <span style="font-size: 0.9em; color: var(--text-muted); font-weight: 400;">The Chinese University of Hong Kong</span>
+            </div>
+          </div>
+
+          <div class="bento-card">
+            <div class="bento-icon"><i class="fa-solid fa-earth-americas"></i></div>
+            <div class="bento-title">Research Focus</div>
+            <div class="bento-desc">
+              Geospatial data science, GIS, climate change, carbon storage, and land use dynamics.
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <aside class="side">
-        <div class="mini">
-          <small>Current Position</small>
-          <div>Postdoctoral Researcher, The Chinese University of Hong Kong</div>
+      <section id="education">
+        <h2 class="section-title">Education <a href="education.html" style="font-size:0.9rem; font-weight:normal; margin-left:auto; color:var(--accent);">View Details &rarr;</a></h2>
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-title">Ph.D. in Geography</div>
+            <div class="bento-desc">Nanjing University (2020 – 2024)</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-title">Visiting Scholar</div>
+            <div class="bento-desc">Harvard University (2022 – 2023)</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-title">M.S. in Physical Geography</div>
+            <div class="bento-desc">East China Normal University (2016 – 2019)</div>
+          </div>
         </div>
+      </section>
 
-        <div class="mini">
-          <small>Research Focus</small>
-          <div>Geospatial data science, GIS, climate change, carbon storage, land use dynamics</div>
+      <section id="work">
+        <h2 class="section-title">Work Experience <a href="work.html" style="font-size:0.9rem; font-weight:normal; margin-left:auto; color:var(--accent);">View Details &rarr;</a></h2>
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-title">Postdoctoral Researcher</div>
+            <div class="bento-desc">The Chinese University of Hong Kong (2025 – Present)</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-title">Academic Researcher</div>
+            <div class="bento-desc">Nanjing University (2024 – 2025)</div>
+          </div>
         </div>
+      </section>
 
-        <div class="mini">
-          <small>Contact</small>
-          <div>zhenwu01@cuhk.edu.hk</div>
+      <section id="projects">
+        <h2 class="section-title">Projects <a href="projects.html" style="font-size:0.9rem; font-weight:normal; margin-left:auto; color:var(--accent);">View Details &rarr;</a></h2>
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="bento-title">Ecosystems & Carbon Sink</div>
+            <div class="bento-desc">Carbon sink estimation, spatial analysis, & policy</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-title">Climate Change & Land Use</div>
+            <div class="bento-desc">Land use transitions & carbon neutrality pathways</div>
+          </div>
+          <div class="bento-card">
+            <div class="bento-title">Spatial Data Lab</div>
+            <div class="bento-desc">Geo-Image tools & workflow-based training</div>
+          </div>
         </div>
+      </section>
 
-        <div class="mini">
-          <small>Details</small>
-          <div>See full education, appointments, projects, talks, and selected publications in CV page.</div>
+      <section id="publications">
+        <h2 class="section-title">Selected Publications <a href="publications.html" style="font-size:0.9rem; font-weight:normal; margin-left:auto; color:var(--accent);">View Details &rarr;</a></h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-title" style="margin-bottom: 0.2rem; color: var(--accent);">Geography and Sustainability (2025)</div>
+            <div class="bento-desc" style="font-size: 0.95rem;">Land use changes and their effects on poverty in Inner Mongolia, northern China.</div>
+          </div>
+          <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-title" style="margin-bottom: 0.2rem; color: var(--accent);">Plant and Soil (2024)</div>
+            <div class="bento-desc" style="font-size: 0.95rem;">Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</div>
+          </div>
+          <div class="bento-card" style="padding: 1.25rem;">
+            <div class="bento-title" style="margin-bottom: 0.2rem; color: var(--accent);">Journal of Environmental Management (2022)</div>
+            <div class="bento-desc" style="font-size: 0.95rem;">The United States and China on the paths and policies to carbon neutrality.</div>
+          </div>
         </div>
-      </aside>
-    </section>
-  </main>
+      </section>
 
-  <footer class="footer">
-    © 2026 Zhen Wu
-  </footer>
+      <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="bento-grid">
+          <div class="bento-card" style="display: flex; flex-direction: row; align-items: center; gap: 1rem; padding: 1.25rem;">
+            <div class="bento-icon" style="margin-bottom: 0; width: 40px; height: 40px;"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="bento-title" style="margin-bottom: 0.2rem;">Email</div>
+              <div class="bento-desc"><a href="mailto:zhenwu01@cuhk.edu.hk">zhenwu01@cuhk.edu.hk</a></div>
+            </div>
+          </div>
+          
+          <div class="bento-card" style="display: flex; flex-direction: row; align-items: center; gap: 1rem; padding: 1.25rem;">
+            <div class="bento-icon" style="margin-bottom: 0; width: 40px; height: 40px;"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <div class="bento-title" style="margin-bottom: 0.2rem;">Location</div>
+              <div class="bento-desc">Hong Kong</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        &copy; 2026 Zhen Wu. All rights reserved.
+      </footer>
+    </main>
+  </div>
+
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
