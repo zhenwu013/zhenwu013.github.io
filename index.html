@@ -510,7 +510,7 @@
 
     .photo-gallery {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 14px;
     }
 
@@ -521,18 +521,8 @@
       border: 1px solid var(--line);
       box-shadow: var(--shadow-sm);
       background: #fff;
-      min-height: 240px;
+      aspect-ratio: 1 / 1;
       isolation: isolate;
-    }
-
-    .photo-card.large {
-      grid-column: span 6;
-      min-height: 300px;
-    }
-
-    .photo-card.small {
-      grid-column: span 3;
-      min-height: 220px;
     }
 
     .photo-card img {
@@ -923,9 +913,8 @@
         grid-template-columns: 1fr;
       }
 
-      .photo-card.large,
-      .photo-card.small {
-        grid-column: span 6;
+      .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .flow {
@@ -955,12 +944,6 @@
 
       .photo-gallery {
         grid-template-columns: 1fr;
-      }
-
-      .photo-card.large,
-      .photo-card.small {
-        grid-column: auto;
-        min-height: 240px;
       }
 
       .timeline-item {
@@ -1162,51 +1145,51 @@
             </p>
 
             <div class="photo-gallery">
-              <figure class="photo-card large">
-                <img src="assets/images/life5.jpg" alt="Personal life photo 1" loading="lazy" />
+              <figure class="photo-card">
+                <img src="assets/images/life1.jpg" alt="Personal life photo 1" loading="lazy" />
                 <figcaption class="photo-label">
                   <i class="fa-solid fa-heart"></i>
-                  Hiking
-                </figcaption>
-              </figure>
-
-              <figure class="photo-card small">
-                <img src="assets/images/life6.jpg" alt="Personal life photo 2" loading="lazy" />
-                <figcaption class="photo-label">
-                  <i class="fa-solid fa-camera-retro"></i>
                   Exploring
                 </figcaption>
               </figure>
 
-              <figure class="photo-card small">
-                <img src="assets/images/life2.jpg" alt="Personal life photo 3" loading="lazy" />
+              <figure class="photo-card">
+                <img src="assets/images/life2.jpg" alt="Personal life photo 2" loading="lazy" />
                 <figcaption class="photo-label">
-                  <i class="fa-solid fa-mountain-sun"></i>
+                  <i class="fa-solid fa-camera-retro"></i>
                   Travel
                 </figcaption>
               </figure>
 
-              <figure class="photo-card small">
-                <img src="assets/images/life3.jpg" alt="Personal life photo 4" loading="lazy" />
+              <figure class="photo-card">
+                <img src="assets/images/life3.jpg" alt="Personal life photo 3" loading="lazy" />
                 <figcaption class="photo-label">
-                  <i class="fa-solid fa-leaf"></i>
-                  Exploring
+                  <i class="fa-solid fa-mountain-sun"></i>
+                  Moments
                 </figcaption>
               </figure>
 
-              <figure class="photo-card small">
+              <figure class="photo-card">
+                <img src="assets/images/life4.jpg" alt="Personal life photo 4" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-leaf"></i>
+                  Life
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card">
                 <img src="assets/images/life5.jpg" alt="Personal life photo 5" loading="lazy" />
                 <figcaption class="photo-label">
                   <i class="fa-solid fa-mug-hot"></i>
-                  Hobbies
+                  Hiking
                 </figcaption>
               </figure>
 
-              <figure class="photo-card large">
-                <img src="assets/images/life1.jpg" alt="Personal life photo 6" loading="lazy" />
+              <figure class="photo-card">
+                <img src="assets/images/life6.jpg" alt="Personal life photo 6" loading="lazy" />
                 <figcaption class="photo-label">
                   <i class="fa-solid fa-star"></i>
-                  Beyond Research
+                  Hobbies
                 </figcaption>
               </figure>
             </div>
