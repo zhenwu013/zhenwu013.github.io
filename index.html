@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Zhen Wu | Geospatial Data Science</title>
   <meta
     name="description"
     content="Academic homepage of Zhen Wu, Postdoctoral Researcher in Geography and Geospatial Data Science."
+  />
+  <meta name="theme-color" content="#f6fbff" />
+
+  <meta property="og:title" content="Zhen Wu | Geospatial Data Science" />
+  <meta
+    property="og:description"
+    content="Academic homepage of Zhen Wu, Postdoctoral Researcher in Geography and Geospatial Data Science."
+  />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
   />
   <link
     rel="stylesheet"
@@ -14,20 +30,27 @@
   />
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
-
     :root {
-      --bg: #f5fbff;
-      --surface: rgba(255, 255, 255, 0.72);
-      --line: rgba(54, 104, 152, 0.12);
-      --text: #10243a;
-      --muted: #5d768e;
-      --accent: #3b9cff;
-      --accent-2: #67cfff;
-      --accent-3: #74ddd2;
-      --shadow: 0 20px 50px rgba(86, 138, 188, 0.14);
-      --radius: 22px;
-      --max: 1240px;
+      --bg: #f6fbff;
+      --bg-soft: #edf6fc;
+      --surface: rgba(255, 255, 255, 0.88);
+      --surface-strong: rgba(255, 255, 255, 0.96);
+      --line: rgba(21, 54, 84, 0.08);
+      --line-strong: rgba(21, 54, 84, 0.14);
+      --text: #102235;
+      --muted: #576b7f;
+      --muted-2: #7b8a98;
+      --accent: #2f80ed;
+      --accent-2: #62b6ff;
+      --accent-soft: rgba(47, 128, 237, 0.1);
+      --shadow-sm: 0 10px 24px rgba(30, 73, 110, 0.05);
+      --shadow-md: 0 18px 44px rgba(30, 73, 110, 0.08);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+      --nav-width: 300px;
     }
 
     * {
@@ -41,20 +64,21 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: "Plus Jakarta Sans", sans-serif;
       color: var(--text);
+      line-height: 1.72;
       background:
-        radial-gradient(circle at 8% 10%, rgba(103, 207, 255, 0.18), transparent 24%),
-        radial-gradient(circle at 90% 10%, rgba(59, 156, 255, 0.1), transparent 22%),
-        radial-gradient(circle at 80% 86%, rgba(116, 221, 210, 0.12), transparent 22%),
-        linear-gradient(135deg, #f7fbff 0%, #edf7ff 45%, #fafcff 100%);
-      line-height: 1.7;
+        radial-gradient(circle at 10% 10%, rgba(98, 182, 255, 0.13), transparent 24%),
+        radial-gradient(circle at 88% 12%, rgba(47, 128, 237, 0.08), transparent 20%),
+        radial-gradient(circle at 80% 82%, rgba(112, 220, 208, 0.1), transparent 24%),
+        linear-gradient(135deg, #f8fcff 0%, #f4f9fd 45%, #fbfdff 100%);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
     img {
@@ -63,186 +87,270 @@
     }
 
     ul {
-      padding-left: 1.2rem;
-      margin-top: 10px;
+      padding-left: 1.15rem;
+      margin-top: 0.75rem;
     }
 
     li {
-      margin-bottom: 6px;
-      color: #49667d;
+      margin-bottom: 0.45rem;
+      color: var(--muted);
+    }
+
+    p {
+      color: var(--muted);
+    }
+
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 56px;
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: var(--nav-width) minmax(0, 1fr);
       gap: 28px;
-      width: min(var(--max), calc(100% - 28px));
-      margin: 0 auto;
-      padding: 24px 0 48px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .sidebar {
       position: sticky;
-      top: 22px;
-      height: fit-content;
-    }
-
-    .glass {
-      background: var(--surface);
-      border: 1px solid rgba(255, 255, 255, 0.62);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: 26px;
-      box-shadow: var(--shadow);
-    }
-
-    .profile-card {
-      padding: 26px 22px;
+      top: 24px;
+      align-self: start;
       overflow: hidden;
+    }
+
+    .sidebar-inner {
+      padding: 24px 20px 20px;
       position: relative;
     }
 
-    .profile-card::after {
+    .sidebar-inner::before {
       content: "";
       position: absolute;
-      width: 160px;
-      height: 160px;
+      inset: -40px -30px auto auto;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      right: -42px;
-      top: -52px;
-      background: radial-gradient(circle, rgba(103, 207, 255, 0.22), transparent 62%);
+      background: radial-gradient(circle, rgba(98, 182, 255, 0.15), transparent 65%);
       pointer-events: none;
     }
 
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+
     .profile-name {
-      text-align: left;
-      font-size: 1.8rem;
+      font-size: 1.72rem;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 1;
     }
 
     .profile-title {
-      text-align: left;
-      margin-top: 6px;
-      color: #4f88b6;
+      margin-top: 8px;
+      color: #4b85b7;
+      font-size: 0.95rem;
       font-weight: 600;
-      font-size: 0.98rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-intro {
+      margin-top: 14px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
     .sidebar-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 18px;
-      margin-bottom: 18px;
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 22px;
+      position: relative;
+      z-index: 1;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      padding: 10px 14px;
+      gap: 8px;
+      padding: 11px 14px;
       border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.88rem;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(59, 156, 255, 0.1);
+    .btn-primary {
+      background: linear-gradient(135deg, #2f80ed, #67bfff);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(47, 128, 237, 0.22);
     }
 
-    .btn-primary,
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 28px rgba(47, 128, 237, 0.24);
+    }
+
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      border-color: var(--line);
       color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: rgba(47, 128, 237, 0.18);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 10px;
+      padding-left: 4px;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-links {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-top: 8px;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-link {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
       padding: 11px 12px;
       border-radius: 14px;
       color: var(--muted);
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      font-size: 0.94rem;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
     }
 
     .nav-link i {
       width: 18px;
       color: var(--accent);
+      opacity: 0.9;
     }
 
     .nav-link:hover {
-      transform: translateX(4px);
-      background: rgba(255, 255, 255, 0.74);
+      background: rgba(255, 255, 255, 0.82);
       color: var(--text);
+      transform: translateX(2px);
     }
 
-    .main-content {
+    .nav-link.active {
+      background: rgba(255, 255, 255, 0.96);
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px rgba(47, 128, 237, 0.1);
+    }
+
+    .main {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 22px;
+      min-width: 0;
     }
 
     .hero {
-      padding: 26px 28px;
+      padding: 30px 30px 28px;
       position: relative;
       overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.82)),
+        linear-gradient(135deg, rgba(98, 182, 255, 0.08), rgba(112, 220, 208, 0.08));
     }
 
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
-      inset: auto -80px -80px auto;
+      right: -30px;
+      top: -30px;
       width: 220px;
       height: 220px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(116, 221, 210, 0.14), transparent 62%);
+      background: radial-gradient(circle, rgba(98, 182, 255, 0.16), transparent 65%);
       pointer-events: none;
     }
 
     .eyebrow {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #7b93a8;
-      font-weight: 700;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      font-size: clamp(2.3rem, 4.2vw, 4.4rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
+      font-size: clamp(2.3rem, 4.6vw, 4.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
       font-weight: 800;
+      max-width: 760px;
+      position: relative;
+      z-index: 1;
     }
 
-    .gradient-text {
+    .hero h1 span {
       display: block;
-      background: linear-gradient(90deg, #4f8fbe, #6eb7d9, #7dcfc5);
+      margin-top: 8px;
+      background: linear-gradient(90deg, #356fa2, #5d9fcb, #79cbbf);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero p {
-      margin-top: 16px;
-      color: #47657d;
+    .hero-lead {
+      margin-top: 18px;
       max-width: 760px;
-      font-size: 1.02rem;
+      font-size: 1.03rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
     }
 
     .hero-tags {
@@ -250,50 +358,76 @@
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
+      position: relative;
+      z-index: 1;
     }
 
     .pill {
+      display: inline-flex;
+      align-items: center;
       padding: 8px 13px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.86);
+      background: rgba(255, 255, 255, 0.88);
       border: 1px solid var(--line);
-      color: #456581;
-      font-size: 0.84rem;
+      color: #48647d;
+      font-size: 0.82rem;
       font-weight: 700;
-      transition: background 0.2s ease, transform 0.2s ease;
     }
 
-    .pill:hover {
-      background: linear-gradient(90deg, rgba(59, 156, 255, 0.1), rgba(103, 207, 255, 0.1));
-      transform: translateY(-2px);
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
     }
 
-    .section-card {
+    .stat-card {
+      padding: 15px 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--line);
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      margin-bottom: 6px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .section {
       padding: 24px;
-      scroll-margin-top: 20px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .section-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(86, 138, 188, 0.13);
+      scroll-margin-top: 24px;
     }
 
     .section-head {
       display: flex;
+      align-items: end;
       justify-content: space-between;
-      align-items: center;
       gap: 16px;
       margin-bottom: 18px;
     }
 
     .section-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 11px;
+      font-size: 1.28rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
     }
 
     .section-title i {
@@ -302,150 +436,255 @@
 
     .section-subtitle {
       color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 14px;
+      font-size: 0.94rem;
+      max-width: 760px;
     }
 
-    .about-text p {
-      color: #49667d;
-      margin-bottom: 12px;
-      font-size: 0.99rem;
-    }
-
-    .photo-gallery {
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 16px;
+    }
+
+    .soft-card {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+    }
+
+    .about-text p + p {
       margin-top: 12px;
     }
 
-    .photo-gallery img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
-      transition: transform 0.24s ease, box-shadow 0.24s ease;
-    }
-
-    .photo-gallery img:hover {
-      transform: translateY(-5px) scale(1.01);
-      box-shadow: 0 16px 30px rgba(75, 145, 205, 0.14);
-    }
-
-    .focus-mini {
-      display: flex;
-      flex-wrap: wrap;
+    .mini-highlights {
+      display: grid;
       gap: 12px;
     }
 
-    .focus-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.84);
+    .mini-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.76);
       border: 1px solid var(--line);
-      box-shadow: 0 8px 18px rgba(100, 160, 210, 0.05);
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #425f78;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
-    .focus-pill:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 24px rgba(100, 160, 210, 0.1);
-    }
-
-    .focus-pill .emoji {
-      width: 34px;
-      height: 34px;
+    .mini-icon {
+      width: 38px;
+      height: 38px;
       border-radius: 12px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #ffffff, #dff4ff);
+      background: linear-gradient(135deg, #ffffff, #e7f5ff);
       color: var(--accent);
       font-size: 1rem;
       flex-shrink: 0;
     }
 
-    .detail-list {
+    .mini-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+
+    .mini-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .gallery-wrap {
       display: grid;
       gap: 14px;
     }
 
-    .detail-item {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 20px rgba(100, 160, 210, 0.04);
-      transition: transform 0.22s ease;
+    .gallery-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 0.95rem;
     }
 
-    .detail-item:hover {
-      transform: translateY(-3px);
+    .photo-gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      background: #fff;
+      min-height: 240px;
+      isolation: isolate;
+    }
+
+    .photo-card.large {
+      grid-column: span 6;
+      min-height: 300px;
+    }
+
+    .photo-card.small {
+      grid-column: span 3;
+      min-height: 220px;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .photo-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(8, 19, 30, 0.42) 0%,
+        rgba(8, 19, 30, 0.12) 36%,
+        rgba(8, 19, 30, 0.02) 65%,
+        transparent 100%
+      );
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .focus-card {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+    }
+
+    .focus-emoji {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #ffffff, #e8f5ff);
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    .focus-card span:last-child {
+      font-weight: 700;
+      color: #415d74;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .detail-list,
+    .pub-list,
+    .timeline,
+    .flow-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .detail-item,
+    .pub,
+    .timeline-item,
+    .flow-card,
+    .skill-card,
+    .contact-card {
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 24px rgba(30, 73, 110, 0.035);
+    }
+
+    .detail-item,
+    .pub,
+    .timeline-item,
+    .flow-card,
+    .skill-card,
+    .contact-card {
+      padding: 18px;
     }
 
     .detail-top {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 16px;
       flex-wrap: wrap;
-      align-items: flex-start;
       margin-bottom: 8px;
     }
 
-    .detail-item h3 {
-      font-size: 1.08rem;
+    .detail-item h3,
+    .flow-card h3,
+    .timeline-item h3 {
+      font-size: 1.04rem;
+      line-height: 1.38;
       font-weight: 800;
-      line-height: 1.35;
+      color: var(--text);
     }
 
     .detail-meta {
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.93rem;
     }
 
     .time-chip {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 7px 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(59, 156, 255, 0.1), rgba(103, 207, 255, 0.1));
-      color: #4d88b9;
+      background: var(--accent-soft);
+      color: #4b81b1;
       font-size: 0.72rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       font-weight: 800;
       white-space: nowrap;
+      border: 1px solid rgba(47, 128, 237, 0.08);
     }
 
-    .flow-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .flow-card {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 20px;
-      box-shadow: 0 10px 20px rgba(100, 160, 210, 0.05);
-    }
-
-    .flow-card h3 {
-      font-size: 1.12rem;
-      font-weight: 800;
-      line-height: 1.35;
-    }
-
-    .flow-card .flow-intro {
+    .flow-intro {
       margin: 10px 0 14px;
-      color: #4b687e;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
+      color: var(--muted);
     }
 
     .flow {
@@ -456,102 +695,77 @@
     }
 
     .step {
-      min-width: 155px;
-      flex: 1 1 155px;
-      background: linear-gradient(180deg, #ffffff, #f8fcff);
-      border: 1px solid rgba(59, 156, 255, 0.1);
-      border-radius: 20px;
+      flex: 1 1 170px;
+      min-width: 170px;
       padding: 14px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .step::after {
-      content: "";
-      position: absolute;
-      inset: auto -18px -18px auto;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(103, 207, 255, 0.1), transparent 70%);
-      pointer-events: none;
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff, #f9fcff);
+      border: 1px solid rgba(47, 128, 237, 0.08);
     }
 
     .step .emoji {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       margin-bottom: 6px;
     }
 
     .step strong {
       display: block;
-      font-size: 0.89rem;
+      font-size: 0.9rem;
       margin-bottom: 4px;
+      color: var(--text);
     }
 
     .step span {
       display: block;
       color: var(--muted);
-      font-size: 0.83rem;
-      line-height: 1.5;
+      font-size: 0.84rem;
+      line-height: 1.55;
     }
 
     .arrow {
       min-width: 24px;
       display: grid;
       place-items: center;
-      color: #71b4e4;
-      font-size: 1.35rem;
+      color: #72abd8;
+      font-size: 1.2rem;
       font-weight: 900;
     }
 
     .timeline {
-      display: grid;
-      gap: 14px;
       position: relative;
     }
 
     .timeline::before {
       content: "";
       position: absolute;
-      left: 16px;
-      top: 6px;
-      bottom: 6px;
-      width: 3px;
+      left: 18px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #7ab8e1, #8fd6e6, #9ddccc);
+      background: linear-gradient(180deg, #77aede, #8fd3d8, #9cd8ca);
     }
 
     .timeline-item {
       position: relative;
-      margin-left: 44px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 20px rgba(100, 160, 210, 0.04);
+      margin-left: 42px;
     }
 
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -36px;
-      top: 24px;
-      width: 16px;
-      height: 16px;
+      left: -33px;
+      top: 22px;
+      width: 13px;
+      height: 13px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #77b7dd, #9adcd7);
-      box-shadow: 0 0 0 6px rgba(103, 207, 255, 0.14);
-    }
-
-    .timeline-item h3 {
-      font-size: 1.03rem;
-      font-weight: 800;
-      line-height: 1.35;
+      background: linear-gradient(135deg, #77b1df, #97d8d2);
+      box-shadow: 0 0 0 5px rgba(98, 182, 255, 0.14);
     }
 
     .timeline-meta {
-      color: #5f91b5;
-      font-size: 0.81rem;
+      color: #5b89ae;
+      font-size: 0.8rem;
       font-weight: 800;
       letter-spacing: 0.04em;
       margin-top: 4px;
@@ -559,27 +773,17 @@
 
     .timeline-item p {
       margin-top: 8px;
-      color: #4b687e;
-      font-size: 0.94rem;
-    }
-
-    .pub-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .pub {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
     }
 
     .pub .year {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: #5f91b5;
-      font-size: 0.74rem;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+      background: var(--accent-soft);
+      color: #5b89ae;
+      font-size: 0.72rem;
       font-weight: 800;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -587,8 +791,9 @@
 
     .pub strong {
       display: block;
-      line-height: 1.5;
       font-size: 0.98rem;
+      line-height: 1.58;
+      color: var(--text);
     }
 
     .pub span {
@@ -600,43 +805,36 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
 
     .skill-card {
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-
-    .skill-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 24px rgba(100, 160, 210, 0.09);
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
     }
 
     .skill-icon {
-      width: 46px;
-      height: 46px;
+      width: 48px;
+      height: 48px;
       border-radius: 15px;
-      background: linear-gradient(135deg, #ffffff, #dff4ff);
       display: grid;
       place-items: center;
-      font-size: 1.2rem;
-      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff, #e7f5ff);
       color: var(--accent);
+      font-size: 1.15rem;
+      flex-shrink: 0;
     }
 
     .skill-card h4 {
       font-size: 0.98rem;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+      color: var(--text);
     }
 
     .skill-card p {
-      color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.89rem;
     }
 
     .contact-grid {
@@ -645,61 +843,52 @@
       gap: 14px;
     }
 
-    .bento-card {
+    .contact-card {
       display: flex;
-      align-items: center;
       gap: 14px;
-      background: rgba(255, 255, 255, 0.84);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 20px rgba(100, 160, 210, 0.04);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      align-items: center;
     }
 
-    .bento-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 24px rgba(100, 160, 210, 0.1);
-    }
-
-    .bento-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+    .contact-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
       display: grid;
       place-items: center;
-      background: linear-gradient(135deg, #ffffff, #dff4ff);
+      background: linear-gradient(135deg, #ffffff, #e7f5ff);
       color: var(--accent);
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       flex-shrink: 0;
     }
 
-    .bento-title {
-      font-weight: 700;
+    .contact-title {
+      font-weight: 800;
       margin-bottom: 3px;
+      color: var(--text);
     }
 
-    .bento-desc {
+    .contact-desc,
+    .contact-desc a {
       color: var(--muted);
       font-size: 0.92rem;
       word-break: break-word;
     }
 
-    .bento-desc a:hover {
+    .contact-desc a:hover {
       color: var(--accent);
     }
 
     footer {
       text-align: center;
-      color: var(--muted);
-      font-size: 0.88rem;
-      padding: 8px 0 0;
+      color: var(--muted-2);
+      font-size: 0.86rem;
+      padding-top: 4px;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
     .reveal.visible {
@@ -707,7 +896,14 @@
       transform: translateY(0);
     }
 
-    @media (max-width: 1100px) {
+    a:focus-visible,
+    .btn:focus-visible,
+    .nav-link:focus-visible {
+      outline: 3px solid rgba(47, 128, 237, 0.25);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1120px) {
       .layout {
         grid-template-columns: 1fr;
       }
@@ -718,11 +914,18 @@
       }
     }
 
-    @media (max-width: 900px) {
-      .photo-gallery,
-      .skills-grid,
-      .contact-grid {
+    @media (max-width: 920px) {
+      .hero-stats,
+      .about-grid,
+      .focus-grid,
+      .contact-grid,
+      .skills-grid {
         grid-template-columns: 1fr;
+      }
+
+      .photo-card.large,
+      .photo-card.small {
+        grid-column: span 6;
       }
 
       .flow {
@@ -734,593 +937,833 @@
       }
     }
 
-    @media (max-width: 640px) {
-      .profile-card,
+    @media (max-width: 680px) {
+      .shell {
+        width: min(var(--max), calc(100% - 18px));
+        padding: 18px 0 34px;
+      }
+
+      .sidebar-inner,
       .hero,
-      .section-card {
+      .section {
         padding: 18px;
       }
 
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.1rem;
       }
 
-      .focus-mini {
-        flex-direction: column;
+      .photo-gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-card.large,
+      .photo-card.small {
+        grid-column: auto;
+        min-height: 240px;
+      }
+
+      .timeline-item {
+        margin-left: 34px;
+      }
+
+      .timeline::before {
+        left: 14px;
+      }
+
+      .timeline-item::before {
+        left: -25px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="profile-card glass">
-        <h1 class="profile-name">Zhen Wu</h1>
-        <div class="profile-title">Geospatial Data Science</div>
+  <div class="shell">
+    <div class="layout">
+      <aside class="sidebar panel">
+        <div class="sidebar-inner">
+          <div class="profile-badge">
+            <i class="fa-solid fa-earth-asia"></i>
+            Academic Homepage
+          </div>
 
-        <div class="sidebar-actions">
-          <a
-            href="https://raw.githubusercontent.com/zhenwu013/zhenwu013.github.io/main/assets/files/CV-Wu-2026.pdf"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i class="fa-solid fa-file-arrow-down"></i> Download CV PDF
-          </a>
-          <a
-            href="https://www.linkedin.com/in/zhen-wu-375510266/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-secondary"
-          >
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-        </div>
-
-        <nav class="nav-links">
-          <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a>
-          <a href="#gallery" class="nav-link"><i class="fa-solid fa-camera"></i> Life & Moments</a>
-          <a href="#focus" class="nav-link"><i class="fa-solid fa-microscope"></i> Focus</a>
-          <a href="#work" class="nav-link"><i class="fa-solid fa-briefcase"></i> Work</a>
-          <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
-          <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
-          <a href="#talks" class="nav-link"><i class="fa-solid fa-microphone-lines"></i> Talks</a>
-          <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
-          <a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a>
-          <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
-        </nav>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <section class="hero glass reveal">
-        <span class="eyebrow">Research Portfolio</span>
-        <h1>
-          Zhen Wu
-          <span class="gradient-text">Geospatial Data Science</span>
-        </h1>
-        <p>
-          Postdoctoral researcher in Geography specializing in geospatial data science,
-          climate change–induced hazards, climate gentrification, GIS, and spatiotemporal modeling.
-        </p>
-        <div class="hero-tags">
-          <span class="pill">Climate Hazards</span>
-          <span class="pill">Geospatial Data Science</span>
-          <span class="pill">Remote Sensing</span>
-          <span class="pill">Carbon Sink Modeling</span>
-          <span class="pill">Land Use Dynamics</span>
-        </div>
-      </section>
-
-      <section id="about" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-user"></i> About Me</h2>
-        </div>
-        <div class="about-text">
-          <p>
-            My expertise includes:
+          <div class="profile-name">Zhen Wu</div>
+          <div class="profile-title">Geospatial Data Science</div>
+          <p class="profile-intro">
+            Postdoctoral researcher working on climate hazards, climate gentrification,
+            GIS, remote sensing, and spatiotemporal modeling.
           </p>
-          <ul>
-            <li>Modeling and analyzing urban disasters and climate gentrification under climate change.</li>
-            <li>Applying machine learning and big data methods to carbon sink modeling, with strong skills in mapping and data visualization.</li>
-            <li>Developing comprehensive indicator systems and quantitative models to assess coastal environmental health.</li>
-            <li>Conducting spatiotemporal analyses of land use and land cover change and their socioeconomic impacts using satellite imagery.</li>
-          </ul>
-        </div>
-      </section>
 
-      <section id="gallery" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-camera"></i> Life & Moments</h2>
-        </div>
-        <p class="section-subtitle">A few moments beyond research and academic work.</p>
-        <div class="photo-gallery">
-          <img src="assets/images/life1.jpg" alt="Life photo 1" />
-          <img src="assets/images/life2.jpg" alt="Life photo 2" />
-          <img src="assets/images/life3.jpg" alt="Life photo 3" />
-          <img src="assets/images/life4.jpg" alt="Life photo 4" />
-          <img src="assets/images/life5.jpg" alt="Life photo 5" />
-          <img src="assets/images/life6.jpg" alt="Life photo 6" />
-        </div>
-      </section>
+          <div class="sidebar-actions">
+            <a
+              href="https://raw.githubusercontent.com/zhenwu013/zhenwu013.github.io/main/assets/files/CV-Wu-2026.pdf"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-solid fa-file-arrow-down"></i>
+              Download CV
+            </a>
 
-      <section id="focus" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-microscope"></i> Focus</h2>
-        </div>
-        <div class="focus-mini">
-          <div class="focus-pill"><span class="emoji">🌍</span><span>Climate Change–Induced Hazards</span></div>
-          <div class="focus-pill"><span class="emoji">🏘️</span><span>Climate Gentrification</span></div>
-          <div class="focus-pill"><span class="emoji">🛰️</span><span>Geospatial Data Science</span></div>
-          <div class="focus-pill"><span class="emoji">🌱</span><span>Carbon Sink Modeling</span></div>
-          <div class="focus-pill"><span class="emoji">🗺️</span><span>Land Use Dynamics</span></div>
-          <div class="focus-pill"><span class="emoji">🏙️</span><span>Environment–Human Interactions</span></div>
-        </div>
-      </section>
+            <a
+              href="https://www.linkedin.com/in/zhen-wu-375510266/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+              LinkedIn
+            </a>
+          </div>
 
-      <section id="work" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experience</h2>
+          <div class="nav-title">Explore</div>
+          <nav class="nav-links" aria-label="Section navigation">
+            <a href="#about" class="nav-link"><i class="fa-solid fa-user"></i> About</a>
+            <a href="#gallery" class="nav-link"><i class="fa-solid fa-camera"></i> Life & Moments</a>
+            <a href="#focus" class="nav-link"><i class="fa-solid fa-microscope"></i> Research Interests</a>
+            <a href="#work" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a>
+            <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+            <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
+            <a href="#talks" class="nav-link"><i class="fa-solid fa-microphone-lines"></i> Talks</a>
+            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
+            <a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a>
+            <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
+          </nav>
         </div>
+      </aside>
 
-        <div class="detail-list">
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Postdoctoral Researcher</h3>
-                <div class="detail-meta">
-                  Department of Geography and Resource Management, The Chinese University of Hong Kong, Hong Kong SAR, China
+      <main class="main">
+        <section class="hero panel reveal">
+          <span class="eyebrow">
+            <i class="fa-solid fa-sparkles"></i>
+            Research Portfolio
+          </span>
+
+          <h1>
+            Zhen Wu
+            <span>Geospatial Data Science</span>
+          </h1>
+
+          <p class="hero-lead">
+            Postdoctoral researcher in Geography specializing in geospatial data science,
+            climate change–induced hazards, climate gentrification, GIS, and spatiotemporal modeling.
+          </p>
+
+          <div class="hero-tags">
+            <span class="pill">Climate Hazards</span>
+            <span class="pill">Geospatial Data Science</span>
+            <span class="pill">Remote Sensing</span>
+            <span class="pill">Carbon Sink Modeling</span>
+            <span class="pill">Land Use Dynamics</span>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">Current Role</span>
+              <span class="stat-value">Postdoctoral Researcher at CUHK</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Research Focus</span>
+              <span class="stat-value">Climate hazards & climate gentrification</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Methods</span>
+              <span class="stat-value">GIS, Remote Sensing, Machine Learning</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-user"></i> About Me</h2>
+              <p class="section-subtitle">
+                My research integrates geospatial analysis, remote sensing, and data-driven modeling
+                to understand environmental change and its interactions with human systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-grid">
+            <div class="soft-card about-text">
+              <p>
+                My expertise includes modeling and analyzing urban disasters and climate gentrification
+                under climate change, applying machine learning and big-data methods to carbon sink
+                modeling, and conducting spatiotemporal analyses of land use and land cover change.
+              </p>
+              <p>
+                I also develop comprehensive indicator systems and quantitative models to assess coastal
+                environmental health, with strong skills in mapping, geospatial visualization, and
+                multi-source data integration.
+              </p>
+            </div>
+
+            <div class="mini-highlights">
+              <div class="mini-item">
+                <div class="mini-icon"><i class="fa-solid fa-water"></i></div>
+                <div>
+                  <strong>Climate Risk</strong>
+                  <span>Sea-level rise, urban flooding, extreme heat, and coastal vulnerability.</span>
                 </div>
               </div>
-              <span class="time-chip">2025/08 – Present</span>
-            </div>
-            <p>
-              My research centers on climate change–induced hazards in coastal regions,
-              using multi-source data to assess and model risks, with a particular focus
-              on climate gentrification.
-            </p>
-            <ul>
-              <li>Evaluate coastal climate hazards, especially sea-level rise, urban flooding, and extreme heat.</li>
-              <li>Develop analytical frameworks for assessing climate gentrification and investigating its driving mechanisms.</li>
-              <li>Contribute as a key team member to the preparation of research proposals for competitive funding applications.</li>
-            </ul>
-          </article>
 
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Academic Researcher</h3>
-                <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
-              </div>
-              <span class="time-chip">2024/07 – 2025/07</span>
-            </div>
-            <p>
-              Modeled and estimated carbon sinks in China’s terrestrial ecosystems using
-              big-data techniques, with a focus on land use change and its ecological and
-              environmental impacts.
-            </p>
-            <ul>
-              <li>Estimated carbon sinks in China’s terrestrial ecosystems using multi-source remote sensing data and machine learning models.</li>
-              <li>Assessed land use change and carbon dynamics along the Yangtze River.</li>
-              <li>Contributed as a key team member to the preparation of research proposals for competitive funding applications.</li>
-              <li>Contributed as a core team member to the <em>Guidelines for the Integrative Technology of Ecological Restoration Area Identification and Carbon Sequestration Enhancement Benefits Assessment</em>.</li>
-            </ul>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Visiting Scholar</h3>
-                <div class="detail-meta">Center for Geographical Analysis (CGA), Harvard University, MA, USA</div>
-              </div>
-              <span class="time-chip">2022/09 – 2023/09</span>
-            </div>
-            <p>
-              Contributed to the development of KNIME, a big-data analytics platform, in
-              the Spatial Data Lab using remote sensing image processing and GIS techniques.
-            </p>
-            <ul>
-              <li>Played a key role in the Geo-Image development project within the CGA KNIME node team by designing a framework for satellite image processing nodes.</li>
-              <li>Taught the theory and applications of Geo-Image in KNIME and supervised hands-on workshop training.</li>
-              <li>
-                Selected teaching experience includes:
-                <ul>
-                  <li><em>Applications of Remote Sensing Data in Carbon Density Estimation</em>, Workshop on Spatiotemporal Innovation, Harvard University (July 2023)</li>
-                  <li><em>Applications of Geo-AI Models to Remote Sensing Data Using KNIME</em>, Workshop on Spatiotemporal Innovation and Data Modeling, Harbin, China (October 2023)</li>
-                </ul>
-              </li>
-              <li>Served as a teaching assistant for GIS-related courses, supporting undergraduate students in the use of ArcGIS Pro and QGIS. Courses included <em>Basic Introduction to GIS</em> (Fall 2023), <em>GIS Workshop</em> (Fall 2023), <em>Cartography Workshop Using ArcGIS Pro</em> (Spring 2023), and <em>Harvard GIS Institute</em> (Winter 2022).</li>
-              <li>Presented project progress at weekly meetings and major academic or project events.</li>
-            </ul>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Visiting Scholar</h3>
-                <div class="detail-meta">
-                  The Center for International Earth Science Information Network (CIESIN),
-                  Columbia University, NY, USA
+              <div class="mini-item">
+                <div class="mini-icon"><i class="fa-solid fa-seedling"></i></div>
+                <div>
+                  <strong>Carbon & Ecology</strong>
+                  <span>Carbon sink estimation, ecosystem restoration, and land use change.</span>
                 </div>
               </div>
-              <span class="time-chip">2018/02 – 2018/08</span>
-            </div>
-            <p>
-              Used integrated environmental and ecological indicators to evaluate coastal
-              environmental change and its human impacts.
-            </p>
-            <ul>
-              <li>Developed a comprehensive marine health index incorporating environmental, ecological, water quality, fisheries, economic, and human well-being indicators to evaluate the health of Shanghai’s nearshore waters and coastline.</li>
-              <li>Assessed the impacts of coastal environmental change on human systems and well-being.</li>
-            </ul>
-          </article>
 
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Research and Teaching Assistant</h3>
-                <div class="detail-meta">Institute of Scientific Research and Education, Zhejiang University, China</div>
-              </div>
-              <span class="time-chip">2019/07 – 2020/07</span>
-            </div>
-            <p>
-              Worked in a demanding, fast-paced academic environment that required strong
-              multitasking, teamwork, and communication with faculty and students.
-              Responsibilities included graduate academic administration and collaboration
-              with researchers on institutional reports.
-            </p>
-            <ul>
-              <li>Served as the department’s sole teaching assistant, coordinating graduate course schedules, final examinations, and the full academic training process, including thesis proposals, pre-defense, defense, and graduation.</li>
-              <li>Managed faculty teaching schedules, handled student administrative affairs, and provided in-class teaching support.</li>
-              <li>Supported the Institute of Higher Education by planning research activities, drafting activity proposals, coordinating staffing and schedules for major annual conferences, and preparing conference reports.</li>
-              <li>Played a key role in organizing the college’s annual gathering for faculty, staff, and students.</li>
-            </ul>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Career Mentor</h3>
-                <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
-              </div>
-              <span class="time-chip">2025/03 – 2027/08</span>
-            </div>
-            <ul>
-              <li>Provided career guidance to undergraduate and graduate students across the department, including employment advising, presentations at career forums, and individualized recommendations based on students’ academic backgrounds and career goals.</li>
-            </ul>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Project Mentor</h3>
-                <div class="detail-meta">Spatial Data Lab (SDL), Center for Geographic Analysis (CGA), Harvard University, USA</div>
-              </div>
-              <span class="time-chip">2024/07 – 2025/07</span>
-            </div>
-            <ul>
-              <li>Supervised undergraduate intern Alex Rop in using KNIME to complete the project <em>Drought Index Monitoring Using Multi-Source Remote Sensing Data Based on KNIME Workflows</em>.</li>
-              <li>Guided the use of Landsat imagery for long-term drought analysis in Nairobi, Africa, and Inner Mongolia, China.</li>
-              <li>Helped develop a reproducible and transferable workflow that can be adapted for drought monitoring in other regions.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="education" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
-        </div>
-        <div class="detail-list">
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>Ph.D. in Geography</h3>
-                <div class="detail-meta">Nanjing University, China</div>
-              </div>
-              <span class="time-chip">2020 – 2024</span>
-            </div>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>M.S. in Physical Geography</h3>
-                <div class="detail-meta">East China Normal University, China</div>
-              </div>
-              <span class="time-chip">2016 – 2019</span>
-            </div>
-          </article>
-
-          <article class="detail-item">
-            <div class="detail-top">
-              <div>
-                <h3>B.S. in Geographic Science</h3>
-                <div class="detail-meta">Hunan University of Science and Technology, China</div>
-              </div>
-              <span class="time-chip">2011 – 2015</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="projects" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> Selected Projects</h2>
-        </div>
-        <p class="section-subtitle">
-          Project experience presented as concise academic workflows to show research focus,
-          analytical methods, and applied outputs.
-        </p>
-
-        <div class="flow-list">
-          <article class="flow-card">
-            <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
-            <p class="flow-intro">
-              Focused on carbon sink estimation, ecosystem degradation analysis, and policy-oriented recommendations for low-carbon development.
-            </p>
-            <div class="flow">
-              <div class="step"><div class="emoji">🛰️</div><strong>Regional data integration</strong><span>Assembled ecosystem, carbon, and geospatial datasets across the Yangtze River region.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">📊</div><strong>Carbon sink modeling</strong><span>Led carbon sink modeling and estimation to quantify ecosystem carbon dynamics.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🗺️</div><strong>Spatiotemporal analysis</strong><span>Identified degraded ecosystems and tracked long-term changes from 1990 onward.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">📌</div><strong>Applied recommendations</strong><span>Generated policy and technical recommendations for restoration and low-carbon strategies.</span></div>
-            </div>
-          </article>
-
-          <article class="flow-card">
-            <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
-            <p class="flow-intro">
-              Examined land use change and carbon cycle dynamics using open satellite data and carbon-related modeling approaches.
-            </p>
-            <div class="flow">
-              <div class="step"><div class="emoji">🌍</div><strong>Satellite data input</strong><span>Used open-source satellite data to support land use and carbon-related analysis.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🤖</div><strong>Model development</strong><span>Developed carbon-related models to examine land use change and carbon cycle dynamics.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">📈</div><strong>Pattern assessment</strong><span>Assessed spatiotemporal patterns of land use change and their implications for carbon neutrality.</span></div>
-            </div>
-          </article>
-
-          <article class="flow-card">
-            <h3>Ecological Carbon Sink Potential Assessment and Carbon Emission Decrease Path in Shanghai’s New City Construction</h3>
-            <p class="flow-intro">
-              Supported carbon sink assessment and emissions reduction planning for sustainable urban development in Shanghai.
-            </p>
-            <div class="flow">
-              <div class="step"><div class="emoji">📝</div><strong>Project documentation</strong><span>Co-authored project proposals and summary reports for carbon sink assessment and emissions reduction planning.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🌱</div><strong>Carbon strategy support</strong><span>Evaluated pathways for enhancing carbon sequestration and reducing emissions in new city development.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🏙️</div><strong>Policy recommendations</strong><span>Produced technical recommendations for local government on low-carbon development pathways.</span></div>
-            </div>
-          </article>
-
-          <article class="flow-card">
-            <h3>Spatial Planning in Inner Mongolia’s Yellow River Basin</h3>
-            <p class="flow-intro">
-              Investigated land use dynamics, ecological vulnerability, and planning implications under urban expansion scenarios.
-            </p>
-            <div class="flow">
-              <div class="step"><div class="emoji">🏞️</div><strong>Land use modeling</strong><span>Modeled land use and ecosystem dynamics under urban expansion scenarios.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">⚠️</div><strong>Vulnerability assessment</strong><span>Assessed ecological vulnerability and examined its implications for planning and policy.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">📄</div><strong>Planning support</strong><span>Prepared analytical reports to support sustainable spatial planning in the region.</span></div>
-            </div>
-          </article>
-
-          <article class="flow-card">
-            <h3>Ecological Protection of Shanghai’s Coastal Waters and the Yangtze River Estuary</h3>
-            <p class="flow-intro">
-              Evaluated coastal ecosystem health and environmental change to support ecological protection and sustainable development planning.
-            </p>
-            <div class="flow">
-              <div class="step"><div class="emoji">🧭</div><strong>Geospatial processing</strong><span>Processed geospatial datasets for coastal and estuarine environmental analysis.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🌊</div><strong>Environmental modeling</strong><span>Conducted environmental modeling to evaluate coastal ecosystem health.</span></div>
-              <div class="arrow">➜</div>
-              <div class="step"><div class="emoji">🌿</div><strong>Change assessment</strong><span>Assessed environmental change to support ecological protection and sustainable development planning.</span></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="talks" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-microphone-lines"></i> Talks & Presentations</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-item">
-            <h3>AAG Annual Meeting 2024</h3>
-            <div class="timeline-meta">Hawaii, US · Apr. 2024 · Organizer & Chair</div>
-            <p>
-              Organized the session on environmental and land resource challenges in the
-              context of climate change and presented on the dynamic evolution of carbon
-              storage in China’s terrestrial ecosystems.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <h3>World Geography Annual Conference 2024</h3>
-            <div class="timeline-meta">Shanghai, China · Nov. 2024</div>
-            <p>
-              Presented research on the spatiotemporal evolution characteristics of carbon
-              storage in China’s terrestrial ecosystems.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <h3>Spatiotemporal Innovation Forum 2024</h3>
-            <div class="timeline-meta">Shanghai, China · Aug. 2024</div>
-            <p>
-              Presented Geo-AI model application in remote sensing data based on workflow-driven analysis.
-            </p>
-          </article>
-
-          <article class="timeline-item">
-            <h3>Symposium on Spatiotemporal Data Science</h3>
-            <div class="timeline-meta">Harvard University · Jul. 2023</div>
-            <p>Presented on forest change and carbon storage research in China from 1990 to 2021.</p>
-          </article>
-
-          <article class="timeline-item">
-            <h3>AAG Annual Meeting 2023</h3>
-            <div class="timeline-meta">Denver, US · Mar. 2023</div>
-            <p>Presented on forest change and litter carbon storage in China from 1990 to 2021.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="publications" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-book"></i> Selected Publications (as the first-author)</h2>
-        </div>
-        <div class="pub-list">
-          <article class="pub">
-            <div class="year">2025</div>
-            <strong>Land use changes and their effects on poverty in Inner Mongolia, northern China.</strong>
-            <span> Geography and Sustainability, 6(4): 100269</span>
-          </article>
-
-          <article class="pub">
-            <div class="year">2024</div>
-            <strong>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</strong>
-            <span>Plant and Soil, 500: 495-514</span>
-          </article>
-
-          <article class="pub">
-            <div class="year">2022</div>
-            <strong>The United States and China on the paths and policies to carbon neutrality.</strong>
-            <span>Journal of Environmental Management, 320: 115785. · (ESI Highly Cited Paper)</span>
-          </article>
-
-          <article class="pub">
-            <div class="year">2021</div>
-            <strong>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</strong>
-            <span>Ecological Indicators, 126: 10765</span>
-          </article>
-
-          <article class="pub">
-            <div class="year">2019</div>
-            <strong>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</strong>
-            <span>Land Use Policy, 87: 104080. · (ESI Highly Cited Paper)</span>
-          </article>
-        </div>
-      </section>
-
-      <section id="skills" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills</h2>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card">
-            <div class="skill-icon">🗺️</div>
-            <h4>GIS & Spatial Analysis</h4>
-            <p>ArcGIS Pro, ArcGIS Online, ArcMap, QGIS, ENVI</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">⚙️</div>
-            <h4>Data Processing</h4>
-            <p>KNIME, SPSS, Origin， CorelDRAW</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">🛰️</div>
-            <h4>Cloud Platform</h4>
-            <p>Google Earth Engine (GEE)</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-icon">🐍</div>
-            <h4>Programming</h4>
-            <p>Python, JavaScript</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section-card glass reveal">
-        <div class="section-head">
-          <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Contact</h2>
-        </div>
-        <div class="contact-grid">
-          <div class="bento-card">
-            <div class="bento-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <div class="bento-title">Email</div>
-              <div class="bento-desc">
-                <a href="mailto:zhenwu013@gmail.com">zhenwu013@gmail.com</a>
+              <div class="mini-item">
+                <div class="mini-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div>
+                  <strong>Spatial Methods</strong>
+                  <span>GIS, remote sensing, GeoAI, and spatiotemporal modeling workflows.</span>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="bento-card">
-            <div class="bento-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <section id="gallery" class="section panel reveal">
+          <div class="section-head">
             <div>
-              <div class="bento-title">Location</div>
-              <div class="bento-desc">Hong Kong</div>
+              <h2 class="section-title"><i class="fa-solid fa-camera"></i> Life & Moments</h2>
+              <p class="section-subtitle">
+                A glimpse beyond research — moments from daily life, interests, travel, and personal hobbies.
+              </p>
             </div>
           </div>
 
-          <div class="bento-card">
-            <div class="bento-icon"><i class="fa-brands fa-linkedin"></i></div>
+          <div class="gallery-wrap">
+            <p class="gallery-intro">
+              This space reflects the personal side of my academic journey. Beyond research and teaching,
+              I value the experiences, places, and small moments that shape how I see the world.
+            </p>
+
+            <div class="photo-gallery">
+              <figure class="photo-card large">
+                <img src="assets/images/life1.jpg" alt="Personal life photo 1" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-heart"></i>
+                  Daily Life
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card small">
+                <img src="assets/images/life2.jpg" alt="Personal life photo 2" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-camera-retro"></i>
+                  Moments
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card small">
+                <img src="assets/images/life3.jpg" alt="Personal life photo 3" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-mountain-sun"></i>
+                  Travel
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card small">
+                <img src="assets/images/life4.jpg" alt="Personal life photo 4" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-leaf"></i>
+                  Nature
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card small">
+                <img src="assets/images/life5.jpg" alt="Personal life photo 5" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-mug-hot"></i>
+                  Hobbies
+                </figcaption>
+              </figure>
+
+              <figure class="photo-card large">
+                <img src="assets/images/life6.jpg" alt="Personal life photo 6" loading="lazy" />
+                <figcaption class="photo-label">
+                  <i class="fa-solid fa-star"></i>
+                  Beyond Research
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section id="focus" class="section panel reveal">
+          <div class="section-head">
             <div>
-              <div class="bento-title">LinkedIn</div>
-              <div class="bento-desc">
-                <a
-                  href="https://www.linkedin.com/in/zhen-wu-375510266/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Profile
-                </a>
+              <h2 class="section-title"><i class="fa-solid fa-microscope"></i> Research Interests</h2>
+              <p class="section-subtitle">
+                Core topics that connect my academic work across climate change, environmental systems,
+                and human–environment interactions.
+              </p>
+            </div>
+          </div>
+
+          <div class="focus-grid">
+            <div class="focus-card">
+              <span class="focus-emoji">🌍</span>
+              <span>Climate Change–Induced Hazards</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-emoji">🏘️</span>
+              <span>Climate Gentrification</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-emoji">🛰️</span>
+              <span>Geospatial Data Science</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-emoji">🌱</span>
+              <span>Carbon Sink Modeling</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-emoji">🗺️</span>
+              <span>Land Use Dynamics</span>
+            </div>
+            <div class="focus-card">
+              <span class="focus-emoji">🏙️</span>
+              <span>Environment–Human Interactions</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="work" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experience</h2>
+              <p class="section-subtitle">
+                Research, teaching, mentoring, and interdisciplinary academic collaboration across geography,
+                geospatial analysis, and environmental studies.
+              </p>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Postdoctoral Researcher</h3>
+                  <div class="detail-meta">
+                    Department of Geography and Resource Management, The Chinese University of Hong Kong, Hong Kong SAR, China
+                  </div>
+                </div>
+                <span class="time-chip">2025/08 – Present</span>
+              </div>
+              <p>
+                My research centers on climate change–induced hazards in coastal regions,
+                using multi-source data to assess and model risks, with a particular focus
+                on climate gentrification.
+              </p>
+              <ul>
+                <li>Evaluate coastal climate hazards, especially sea-level rise, urban flooding, and extreme heat.</li>
+                <li>Develop analytical frameworks for assessing climate gentrification and investigating its driving mechanisms.</li>
+                <li>Contribute as a key team member to the preparation of research proposals for competitive funding applications.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Academic Researcher</h3>
+                  <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
+                </div>
+                <span class="time-chip">2024/07 – 2025/07</span>
+              </div>
+              <p>
+                Modeled and estimated carbon sinks in China’s terrestrial ecosystems using
+                big-data techniques, with a focus on land use change and its ecological and
+                environmental impacts.
+              </p>
+              <ul>
+                <li>Estimated carbon sinks in China’s terrestrial ecosystems using multi-source remote sensing data and machine learning models.</li>
+                <li>Assessed land use change and carbon dynamics along the Yangtze River.</li>
+                <li>Contributed as a key team member to the preparation of research proposals for competitive funding applications.</li>
+                <li>Contributed as a core team member to the <em>Guidelines for the Integrative Technology of Ecological Restoration Area Identification and Carbon Sequestration Enhancement Benefits Assessment</em>.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Visiting Scholar</h3>
+                  <div class="detail-meta">Center for Geographical Analysis (CGA), Harvard University, MA, USA</div>
+                </div>
+                <span class="time-chip">2022/09 – 2023/09</span>
+              </div>
+              <p>
+                Contributed to the development of KNIME, a big-data analytics platform, in
+                the Spatial Data Lab using remote sensing image processing and GIS techniques.
+              </p>
+              <ul>
+                <li>Played a key role in the Geo-Image development project within the CGA KNIME node team by designing a framework for satellite image processing nodes.</li>
+                <li>Taught the theory and applications of Geo-Image in KNIME and supervised hands-on workshop training.</li>
+                <li>
+                  Selected teaching experience includes:
+                  <ul>
+                    <li><em>Applications of Remote Sensing Data in Carbon Density Estimation</em>, Workshop on Spatiotemporal Innovation, Harvard University (July 2023)</li>
+                    <li><em>Applications of Geo-AI Models to Remote Sensing Data Using KNIME</em>, Workshop on Spatiotemporal Innovation and Data Modeling, Harbin, China (October 2023)</li>
+                  </ul>
+                </li>
+                <li>Served as a teaching assistant for GIS-related courses, supporting undergraduate students in the use of ArcGIS Pro and QGIS. Courses included <em>Basic Introduction to GIS</em> (Fall 2023), <em>GIS Workshop</em> (Fall 2023), <em>Cartography Workshop Using ArcGIS Pro</em> (Spring 2023), and <em>Harvard GIS Institute</em> (Winter 2022).</li>
+                <li>Presented project progress at weekly meetings and major academic or project events.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Visiting Scholar</h3>
+                  <div class="detail-meta">
+                    The Center for International Earth Science Information Network (CIESIN),
+                    Columbia University, NY, USA
+                  </div>
+                </div>
+                <span class="time-chip">2018/02 – 2018/08</span>
+              </div>
+              <p>
+                Used integrated environmental and ecological indicators to evaluate coastal
+                environmental change and its human impacts.
+              </p>
+              <ul>
+                <li>Developed a comprehensive marine health index incorporating environmental, ecological, water quality, fisheries, economic, and human well-being indicators to evaluate the health of Shanghai’s nearshore waters and coastline.</li>
+                <li>Assessed the impacts of coastal environmental change on human systems and well-being.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Research and Teaching Assistant</h3>
+                  <div class="detail-meta">Institute of Scientific Research and Education, Zhejiang University, China</div>
+                </div>
+                <span class="time-chip">2019/07 – 2020/07</span>
+              </div>
+              <p>
+                Worked in a demanding, fast-paced academic environment that required strong
+                multitasking, teamwork, and communication with faculty and students.
+                Responsibilities included graduate academic administration and collaboration
+                with researchers on institutional reports.
+              </p>
+              <ul>
+                <li>Served as the department’s sole teaching assistant, coordinating graduate course schedules, final examinations, and the full academic training process, including thesis proposals, pre-defense, defense, and graduation.</li>
+                <li>Managed faculty teaching schedules, handled student administrative affairs, and provided in-class teaching support.</li>
+                <li>Supported the Institute of Higher Education by planning research activities, drafting activity proposals, coordinating staffing and schedules for major annual conferences, and preparing conference reports.</li>
+                <li>Played a key role in organizing the college’s annual gathering for faculty, staff, and students.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Career Mentor</h3>
+                  <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
+                </div>
+                <span class="time-chip">2025/03 – 2027/08</span>
+              </div>
+              <ul>
+                <li>Provided career guidance to undergraduate and graduate students across the department, including employment advising, presentations at career forums, and individualized recommendations based on students’ academic backgrounds and career goals.</li>
+              </ul>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Project Mentor</h3>
+                  <div class="detail-meta">Spatial Data Lab (SDL), Center for Geographic Analysis (CGA), Harvard University, USA</div>
+                </div>
+                <span class="time-chip">2024/07 – 2025/07</span>
+              </div>
+              <ul>
+                <li>Supervised undergraduate intern Alex Rop in using KNIME to complete the project <em>Drought Index Monitoring Using Multi-Source Remote Sensing Data Based on KNIME Workflows</em>.</li>
+                <li>Guided the use of Landsat imagery for long-term drought analysis in Nairobi, Africa, and Inner Mongolia, China.</li>
+                <li>Helped develop a reproducible and transferable workflow that can be adapted for drought monitoring in other regions.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="education" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+            </div>
+          </div>
+
+          <div class="detail-list">
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>Ph.D. in Geography</h3>
+                  <div class="detail-meta">Nanjing University, China</div>
+                </div>
+                <span class="time-chip">2020 – 2024</span>
+              </div>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>M.S. in Physical Geography</h3>
+                  <div class="detail-meta">East China Normal University, China</div>
+                </div>
+                <span class="time-chip">2016 – 2019</span>
+              </div>
+            </article>
+
+            <article class="detail-item">
+              <div class="detail-top">
+                <div>
+                  <h3>B.S. in Geographic Science</h3>
+                  <div class="detail-meta">Hunan University of Science and Technology, China</div>
+                </div>
+                <span class="time-chip">2011 – 2015</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> Selected Projects</h2>
+              <p class="section-subtitle">
+                Project experience presented as concise academic workflows to show research focus,
+                analytical methods, and applied outputs.
+              </p>
+            </div>
+          </div>
+
+          <div class="flow-list">
+            <article class="flow-card">
+              <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
+              <p class="flow-intro">
+                Focused on carbon sink estimation, ecosystem degradation analysis, and policy-oriented recommendations for low-carbon development.
+              </p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🛰️</div><strong>Regional data integration</strong><span>Assembled ecosystem, carbon, and geospatial datasets across the Yangtze River region.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">📊</div><strong>Carbon sink modeling</strong><span>Led carbon sink modeling and estimation to quantify ecosystem carbon dynamics.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🗺️</div><strong>Spatiotemporal analysis</strong><span>Identified degraded ecosystems and tracked long-term changes from 1990 onward.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">📌</div><strong>Applied recommendations</strong><span>Generated policy and technical recommendations for restoration and low-carbon strategies.</span></div>
+              </div>
+            </article>
+
+            <article class="flow-card">
+              <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
+              <p class="flow-intro">
+                Examined land use change and carbon cycle dynamics using open satellite data and carbon-related modeling approaches.
+              </p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🌍</div><strong>Satellite data input</strong><span>Used open-source satellite data to support land use and carbon-related analysis.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🤖</div><strong>Model development</strong><span>Developed carbon-related models to examine land use change and carbon cycle dynamics.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">📈</div><strong>Pattern assessment</strong><span>Assessed spatiotemporal patterns of land use change and their implications for carbon neutrality.</span></div>
+              </div>
+            </article>
+
+            <article class="flow-card">
+              <h3>Ecological Carbon Sink Potential Assessment and Carbon Emission Decrease Path in Shanghai’s New City Construction</h3>
+              <p class="flow-intro">
+                Supported carbon sink assessment and emissions reduction planning for sustainable urban development in Shanghai.
+              </p>
+              <div class="flow">
+                <div class="step"><div class="emoji">📝</div><strong>Project documentation</strong><span>Co-authored project proposals and summary reports for carbon sink assessment and emissions reduction planning.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌱</div><strong>Carbon strategy support</strong><span>Evaluated pathways for enhancing carbon sequestration and reducing emissions in new city development.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🏙️</div><strong>Policy recommendations</strong><span>Produced technical recommendations for local government on low-carbon development pathways.</span></div>
+              </div>
+            </article>
+
+            <article class="flow-card">
+              <h3>Spatial Planning in Inner Mongolia’s Yellow River Basin</h3>
+              <p class="flow-intro">
+                Investigated land use dynamics, ecological vulnerability, and planning implications under urban expansion scenarios.
+              </p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🏞️</div><strong>Land use modeling</strong><span>Modeled land use and ecosystem dynamics under urban expansion scenarios.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">⚠️</div><strong>Vulnerability assessment</strong><span>Assessed ecological vulnerability and examined its implications for planning and policy.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">📄</div><strong>Planning support</strong><span>Prepared analytical reports to support sustainable spatial planning in the region.</span></div>
+              </div>
+            </article>
+
+            <article class="flow-card">
+              <h3>Ecological Protection of Shanghai’s Coastal Waters and the Yangtze River Estuary</h3>
+              <p class="flow-intro">
+                Evaluated coastal ecosystem health and environmental change to support ecological protection and sustainable development planning.
+              </p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🧭</div><strong>Geospatial processing</strong><span>Processed geospatial datasets for coastal and estuarine environmental analysis.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌊</div><strong>Environmental modeling</strong><span>Conducted environmental modeling to evaluate coastal ecosystem health.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌿</div><strong>Change assessment</strong><span>Assessed environmental change to support ecological protection and sustainable development planning.</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="talks" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-microphone-lines"></i> Talks & Presentations</h2>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <h3>AAG Annual Meeting 2024</h3>
+              <div class="timeline-meta">Hawaii, US · Apr. 2024 · Organizer & Chair</div>
+              <p>
+                Organized the session on environmental and land resource challenges in the
+                context of climate change and presented on the dynamic evolution of carbon
+                storage in China’s terrestrial ecosystems.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>World Geography Annual Conference 2024</h3>
+              <div class="timeline-meta">Shanghai, China · Nov. 2024</div>
+              <p>
+                Presented research on the spatiotemporal evolution characteristics of carbon
+                storage in China’s terrestrial ecosystems.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>Spatiotemporal Innovation Forum 2024</h3>
+              <div class="timeline-meta">Shanghai, China · Aug. 2024</div>
+              <p>
+                Presented Geo-AI model application in remote sensing data based on workflow-driven analysis.
+              </p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>Symposium on Spatiotemporal Data Science</h3>
+              <div class="timeline-meta">Harvard University · Jul. 2023</div>
+              <p>Presented on forest change and carbon storage research in China from 1990 to 2021.</p>
+            </article>
+
+            <article class="timeline-item">
+              <h3>AAG Annual Meeting 2023</h3>
+              <div class="timeline-meta">Denver, US · Mar. 2023</div>
+              <p>Presented on forest change and litter carbon storage in China from 1990 to 2021.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="publications" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book"></i> Selected First-Author Publications</h2>
+            </div>
+          </div>
+
+          <div class="pub-list">
+            <article class="pub">
+              <div class="year">2025</div>
+              <strong>Land use changes and their effects on poverty in Inner Mongolia, northern China.</strong>
+              <span>Geography and Sustainability, 6(4): 100269</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2024</div>
+              <strong>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</strong>
+              <span>Plant and Soil, 500: 495-514</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2022</div>
+              <strong>The United States and China on the paths and policies to carbon neutrality.</strong>
+              <span>Journal of Environmental Management, 320: 115785 · ESI Highly Cited Paper</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2021</div>
+              <strong>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</strong>
+              <span>Ecological Indicators, 126: 10765</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2019</div>
+              <strong>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</strong>
+              <span>Land Use Policy, 87: 104080 · ESI Highly Cited Paper</span>
+            </article>
+          </div>
+        </section>
+
+        <section id="skills" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-gears"></i> Skills</h2>
+            </div>
+          </div>
+
+          <div class="skills-grid">
+            <article class="skill-card">
+              <div class="skill-icon">🗺️</div>
+              <div>
+                <h4>GIS & Spatial Analysis</h4>
+                <p>ArcGIS Pro, ArcGIS Online, ArcMap, QGIS, ENVI</p>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-icon">⚙️</div>
+              <div>
+                <h4>Data Processing</h4>
+                <p>KNIME, SPSS, Origin, CorelDRAW</p>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-icon">🛰️</div>
+              <div>
+                <h4>Cloud Platform</h4>
+                <p>Google Earth Engine (GEE)</p>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <div class="skill-icon">🐍</div>
+              <div>
+                <h4>Programming</h4>
+                <p>Python, JavaScript</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-envelope"></i> Contact</h2>
+            </div>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <div class="contact-title">Email</div>
+                <div class="contact-desc">
+                  <a href="mailto:zhenwu013@gmail.com">zhenwu013@gmail.com</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <div class="contact-title">Location</div>
+                <div class="contact-desc">Hong Kong</div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div>
+                <div class="contact-title">LinkedIn</div>
+                <div class="contact-desc">
+                  <a
+                    href="https://www.linkedin.com/in/zhen-wu-375510266/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Profile
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fa-solid fa-file-pdf"></i></div>
+              <div>
+                <div class="contact-title">Curriculum Vitae</div>
+                <div class="contact-desc">
+                  <a
+                    href="https://raw.githubusercontent.com/zhenwu013/zhenwu013.github.io/main/assets/files/CV-Wu-2026.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Download PDF
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+        </section>
 
-          <div class="bento-card">
-            <div class="bento-icon"><i class="fa-solid fa-file-pdf"></i></div>
-            <div>
-              <div class="bento-title">Curriculum Vitae</div>
-              <div class="bento-desc">
-                <a
-                   href="https://raw.githubusercontent.com/zhenwu013/zhenwu013.github.io/main/assets/files/CV-Wu-2026.pdf"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                >
-                  Download PDF
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer>
-        &copy; 2026 Zhen Wu. All rights reserved.
-      </footer>
-    </main>
+        <footer>
+          &copy; 2026 Zhen Wu. All rights reserved.
+        </footer>
+      </main>
+    </div>
   </div>
 
   <script>
     const revealElements = document.querySelectorAll('.reveal');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('main section[id]');
 
     if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
+      const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+            revealObserver.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, {
+        threshold: 0.12
+      });
 
-      revealElements.forEach((el) => observer.observe(el));
+      revealElements.forEach((el) => revealObserver.observe(el));
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            navLinks.forEach((link) => link.classList.remove('active'));
+            const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+          }
+        });
+      }, {
+        threshold: 0.32,
+        rootMargin: "-12% 0px -55% 0px"
+      });
+
+      sections.forEach((section) => navObserver.observe(section));
     } else {
       revealElements.forEach((el) => el.classList.add('visible'));
     }
