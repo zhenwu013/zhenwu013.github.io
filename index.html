@@ -309,9 +309,9 @@
     }
 
     .hero-with-photo {
-      min-height: 520px;
-      padding: 34px;
-      background: url("assets/images/hero-bg.jpg") center 38% / cover no-repeat;
+      min-height: 500px;
+      padding: 42px;
+      background: url("assets/images/hero-bg.jpg") center 40% / cover no-repeat;
       display: flex;
       align-items: center;
     }
@@ -322,12 +322,11 @@
       inset: 0;
       background:
         linear-gradient(90deg,
-          rgba(248, 252, 255, 0.04) 0%,
-          rgba(248, 252, 255, 0.08) 34%,
-          rgba(248, 252, 255, 0.54) 54%,
-          rgba(248, 252, 255, 0.86) 76%,
-          rgba(248, 252, 255, 0.94) 100%),
-        linear-gradient(0deg, rgba(20, 54, 84, 0.05), transparent 48%);
+          rgba(247, 251, 254, 0.96) 0%,
+          rgba(247, 251, 254, 0.93) 38%,
+          rgba(247, 251, 254, 0.74) 62%,
+          rgba(247, 251, 254, 0.34) 100%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(34,74,107,0.08));
       pointer-events: none;
     }
 
@@ -1031,92 +1030,169 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      display: flex;
-      justify-content: flex-end;
+      display: grid;
+      grid-template-columns: minmax(0, 690px) 1fr;
+      gap: 26px;
       align-items: center;
     }
 
     .hero-content {
-      width: min(58%, 650px);
-      padding: 28px;
-      border-radius: 28px;
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid rgba(255, 255, 255, 0.62);
-      box-shadow: 0 22px 48px rgba(30, 73, 110, 0.11);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      position: relative;
+      width: 100%;
+      max-width: 690px;
+      padding: 30px 32px 28px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 42px rgba(30, 73, 110, 0.09);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
     }
 
-    .hero-content .eyebrow {
-      margin-bottom: 14px;
-      background: rgba(255, 255, 255, 0.66);
+    .academic-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(47, 128, 237, 0.08);
+      border: 1px solid rgba(47, 128, 237, 0.08);
+      color: #507a9d;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .academic-rule {
+      width: 54px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4f8fc2, #83c6c0);
+      margin: 18px 0 16px;
     }
 
     .hero-content h1 {
-      font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+      font-size: clamp(2.75rem, 4.6vw, 4.7rem);
       max-width: none;
+      color: #102235;
     }
 
-    .hero-content .hero-lead {
-      margin-top: 16px;
-      max-width: 610px;
-      font-size: 1rem;
+    .hero-content h1 span {
+      margin-top: 9px;
+      font-size: 0.47em;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: #527a9a;
+      font-weight: 700;
+    }
+
+    .academic-summary {
+      max-width: 620px;
       color: #405d75;
+      font-size: 0.98rem;
+      line-height: 1.72;
     }
 
-    .hero-personal-line {
-      margin-top: 14px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px 14px;
+    .academic-affiliation {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 11px;
+      align-items: start;
+      margin-top: 17px;
+      padding: 13px 15px;
       border-radius: 17px;
-      background: rgba(255, 255, 255, 0.56);
-      border: 1px solid rgba(47, 128, 237, 0.08);
-      color: #52718b;
-      font-size: 0.84rem;
-      line-height: 1.55;
+      background: rgba(255, 255, 255, 0.66);
+      border: 1px solid rgba(47, 128, 237, 0.07);
     }
 
-    .hero-personal-line i {
+    .academic-affiliation i {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      background: rgba(47, 128, 237, 0.08);
       color: var(--accent);
-      margin-top: 3px;
-      flex-shrink: 0;
+    }
+
+    .academic-affiliation strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.83rem;
+      margin-bottom: 2px;
+    }
+
+    .academic-affiliation span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.83rem;
+      line-height: 1.45;
+    }
+
+    .academic-focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .academic-focus span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(47, 128, 237, 0.07);
+      color: #526e86;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .academic-focus i {
+      color: #5d96bf;
     }
 
     .hero-actions-inline {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: 20px;
     }
 
     .hero-actions-inline .btn {
-      padding: 10px 14px;
+      padding: 10px 15px;
     }
 
-    .hero-signature {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
+    .academic-side-note {
+      align-self: end;
+      justify-self: end;
+      width: min(100%, 270px);
+      padding: 16px 18px;
+      border-left: 2px solid rgba(255, 255, 255, 0.88);
+      color: rgba(16, 34, 53, 0.78);
+      text-shadow: 0 1px 10px rgba(255,255,255,0.85);
     }
 
-    .hero-signature span {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.52);
-      border: 1px solid rgba(47, 128, 237, 0.07);
-      color: #55748d;
-      font-size: 0.77rem;
-      font-weight: 700;
+    .academic-side-note span {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #4d7798;
+      margin-bottom: 6px;
     }
 
-    .hero-signature i {
-      color: #5f9ccb;
+    .academic-side-note p {
+      color: #29475f;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      font-weight: 600;
     }
 
     @media (max-width: 1120px) {
@@ -1129,25 +1205,38 @@
         top: auto;
       }
 
+      .hero-layout {
+        grid-template-columns: minmax(0, 650px) 1fr;
+      }
+
       .hero-content {
-        width: min(68%, 650px);
+        max-width: 650px;
       }
     }
 
     @media (max-width: 920px) {
       .hero-with-photo {
-        min-height: 560px;
+        min-height: 620px;
         align-items: flex-end;
+        padding: 24px;
         background-position: center 38%;
       }
 
       .hero-with-photo::before {
-        background: linear-gradient(0deg, rgba(248, 252, 255, 0.94) 0%, rgba(248, 252, 255, 0.78) 48%, rgba(248, 252, 255, 0.08) 76%);
+        background: linear-gradient(0deg, rgba(247,251,254,0.97) 0%, rgba(247,251,254,0.90) 46%, rgba(247,251,254,0.36) 74%, rgba(247,251,254,0.10) 100%);
+      }
+
+      .hero-layout {
+        grid-template-columns: 1fr;
       }
 
       .hero-content {
-        width: 100%;
-        padding: 22px;
+        max-width: 100%;
+        padding: 24px;
+      }
+
+      .academic-side-note {
+        display: none;
       }
 
       .compact-list {
@@ -1181,18 +1270,18 @@
 
     @media (max-width: 680px) {
       .hero-with-photo {
-        min-height: 620px;
-        padding: 16px;
-        background-position: center 32%;
+        min-height: 660px;
+        padding: 14px;
+        background-position: center 36%;
       }
 
       .hero-content {
-        padding: 18px;
+        padding: 20px;
         border-radius: 22px;
       }
 
       .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.55rem;
       }
 
       .hero-tags {
@@ -1327,48 +1416,49 @@
         <section class="hero hero-with-photo panel reveal">
           <div class="hero-layout">
             <div class="hero-content">
-              <span class="eyebrow">
-                <i class="fa-solid fa-hand-sparkles"></i>
-                Hello, I’m Zhen
-              </span>
+              <div class="academic-kicker">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Academic Profile
+              </div>
 
               <h1>
                 Zhen Wu
-                <span>Geospatial Data Science</span>
+                <span>Geospatial Data Science &amp; Climate–Environment Research</span>
               </h1>
 
-              <p class="hero-lead">
-                I study how climate change reshapes environments and communities, using GIS,
-                remote sensing, GeoAI, and spatiotemporal modeling to turn complex spatial data
-                into evidence for more resilient places.
+              <div class="academic-rule"></div>
+
+              <p class="academic-summary">
+                Postdoctoral researcher in Geography working at the intersection of geospatial data science,
+                climate change, environmental risk, and human–environment interactions. My research combines
+                GIS, remote sensing, GeoAI, and spatiotemporal modeling to analyze climate hazards, carbon dynamics,
+                land use change, and coastal sustainability.
               </p>
 
-              <div class="hero-personal-line">
-                <i class="fa-solid fa-location-dot"></i>
-                <span>
-                  Currently a Postdoctoral Researcher at The Chinese University of Hong Kong,
-                  with visiting research experience at Harvard University and Columbia University.
-                </span>
+              <div class="academic-affiliation">
+                <i class="fa-solid fa-building-columns"></i>
+                <div>
+                  <strong>Current Appointment</strong>
+                  <span>Postdoctoral Researcher · Department of Geography and Resource Management · The Chinese University of Hong Kong</span>
+                </div>
               </div>
 
-              <div class="hero-tags">
-                <span class="pill">Climate Hazards</span>
-                <span class="pill">Climate Gentrification</span>
-                <span class="pill">Remote Sensing</span>
-                <span class="pill">GeoAI</span>
-                <span class="pill">Carbon Dynamics</span>
+              <div class="academic-focus" aria-label="Core research areas">
+                <span><i class="fa-solid fa-water"></i> Climate Hazards</span>
+                <span><i class="fa-solid fa-city"></i> Climate Gentrification</span>
+                <span><i class="fa-solid fa-satellite"></i> Remote Sensing</span>
+                <span><i class="fa-solid fa-leaf"></i> Carbon Dynamics</span>
               </div>
 
               <div class="hero-actions-inline">
-                <a href="#publications" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Publications</a>
-                <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-diagram-project"></i> Research Projects</a>
+                <a href="#publications" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Selected Publications</a>
+                <a href="assets/files/CV-Wu-2026.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines"></i> Curriculum Vitae</a>
               </div>
+            </div>
 
-              <div class="hero-signature" aria-label="Research profile highlights">
-                <span><i class="fa-solid fa-earth-asia"></i> Human–Environment Systems</span>
-                <span><i class="fa-solid fa-satellite"></i> Spatial Data & Remote Sensing</span>
-                <span><i class="fa-solid fa-seedling"></i> Climate & Sustainability</span>
-              </div>
+            <div class="academic-side-note" aria-hidden="true">
+              <span>Research Perspective</span>
+              <p>Spatial evidence for understanding environmental change, climate risk, and resilient human–environment systems.</p>
             </div>
           </div>
         </section>
