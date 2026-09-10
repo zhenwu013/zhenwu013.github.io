@@ -309,16 +309,25 @@
     }
 
     .hero-with-photo {
-      min-height: 440px;
-      background:
-        url("assets/images/hero-bg.jpg") center 38% / cover no-repeat;
+      min-height: 520px;
+      padding: 34px;
+      background: url("assets/images/hero-bg.jpg") center 38% / cover no-repeat;
+      display: flex;
+      align-items: center;
     }
 
     .hero-with-photo::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(248, 252, 255, 0.93) 0%, rgba(248, 252, 255, 0.88) 34%, rgba(248, 252, 255, 0.72) 62%, rgba(248, 252, 255, 0.50) 100%);
+      background:
+        linear-gradient(90deg,
+          rgba(248, 252, 255, 0.04) 0%,
+          rgba(248, 252, 255, 0.08) 34%,
+          rgba(248, 252, 255, 0.54) 54%,
+          rgba(248, 252, 255, 0.86) 76%,
+          rgba(248, 252, 255, 0.94) 100%),
+        linear-gradient(0deg, rgba(20, 54, 84, 0.05), transparent 48%);
       pointer-events: none;
     }
 
@@ -1017,6 +1026,99 @@
       background: rgba(47, 128, 237, 0.13);
     }
 
+
+    .hero-layout {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .hero-content {
+      width: min(58%, 650px);
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.62);
+      border: 1px solid rgba(255, 255, 255, 0.62);
+      box-shadow: 0 22px 48px rgba(30, 73, 110, 0.11);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero-content .eyebrow {
+      margin-bottom: 14px;
+      background: rgba(255, 255, 255, 0.66);
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.6rem, 4.4vw, 4.4rem);
+      max-width: none;
+    }
+
+    .hero-content .hero-lead {
+      margin-top: 16px;
+      max-width: 610px;
+      font-size: 1rem;
+      color: #405d75;
+    }
+
+    .hero-personal-line {
+      margin-top: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(47, 128, 237, 0.08);
+      color: #52718b;
+      font-size: 0.84rem;
+      line-height: 1.55;
+    }
+
+    .hero-personal-line i {
+      color: var(--accent);
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .hero-actions-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .hero-actions-inline .btn {
+      padding: 10px 14px;
+    }
+
+    .hero-signature {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .hero-signature span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.52);
+      border: 1px solid rgba(47, 128, 237, 0.07);
+      color: #55748d;
+      font-size: 0.77rem;
+      font-weight: 700;
+    }
+
+    .hero-signature i {
+      color: #5f9ccb;
+    }
+
     @media (max-width: 1120px) {
       .layout {
         grid-template-columns: 1fr;
@@ -1026,9 +1128,28 @@
         position: relative;
         top: auto;
       }
+
+      .hero-content {
+        width: min(68%, 650px);
+      }
     }
 
     @media (max-width: 920px) {
+      .hero-with-photo {
+        min-height: 560px;
+        align-items: flex-end;
+        background-position: center 38%;
+      }
+
+      .hero-with-photo::before {
+        background: linear-gradient(0deg, rgba(248, 252, 255, 0.94) 0%, rgba(248, 252, 255, 0.78) 48%, rgba(248, 252, 255, 0.08) 76%);
+      }
+
+      .hero-content {
+        width: 100%;
+        padding: 22px;
+      }
+
       .compact-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -1059,6 +1180,30 @@
     }
 
     @media (max-width: 680px) {
+      .hero-with-photo {
+        min-height: 620px;
+        padding: 16px;
+        background-position: center 32%;
+      }
+
+      .hero-content {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-tags {
+        gap: 7px;
+      }
+
+      .pill {
+        padding: 7px 10px;
+        font-size: 0.76rem;
+      }
+
       .compact-list {
         grid-template-columns: 1fr;
       }
@@ -1180,41 +1325,50 @@
 
       <main class="main">
         <section class="hero hero-with-photo panel reveal">
-          <span class="eyebrow">
-            <i class="fa-solid fa-sparkles"></i>
-            Research Portfolio
-          </span>
+          <div class="hero-layout">
+            <div class="hero-content">
+              <span class="eyebrow">
+                <i class="fa-solid fa-hand-sparkles"></i>
+                Hello, I’m Zhen
+              </span>
 
-          <h1>
-            Zhen Wu
-            <span>Geospatial Data Science</span>
-          </h1>
+              <h1>
+                Zhen Wu
+                <span>Geospatial Data Science</span>
+              </h1>
 
-          <p class="hero-lead">
-            Postdoctoral researcher in Geography specializing in geospatial data science,
-            climate change–induced hazards, climate gentrification, GIS, and spatiotemporal modeling.
-          </p>
+              <p class="hero-lead">
+                I study how climate change reshapes environments and communities, using GIS,
+                remote sensing, GeoAI, and spatiotemporal modeling to turn complex spatial data
+                into evidence for more resilient places.
+              </p>
 
-          <div class="hero-tags">
-            <span class="pill">Climate Hazards</span>
-            <span class="pill">Geospatial Data Science</span>
-            <span class="pill">Remote Sensing</span>
-            <span class="pill">Carbon Sink Modeling</span>
-            <span class="pill">Land Use Dynamics</span>
-          </div>
+              <div class="hero-personal-line">
+                <i class="fa-solid fa-location-dot"></i>
+                <span>
+                  Currently a Postdoctoral Researcher at The Chinese University of Hong Kong,
+                  with visiting research experience at Harvard University and Columbia University.
+                </span>
+              </div>
 
-          <div class="hero-stats">
-            <div class="stat-card">
-              <span class="stat-label">Current Role</span>
-              <span class="stat-value">Postdoctoral Researcher at CUHK</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Research Focus</span>
-              <span class="stat-value">Climate hazards & climate gentrification</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-label">Methods</span>
-              <span class="stat-value">GIS, Remote Sensing, Machine Learning</span>
+              <div class="hero-tags">
+                <span class="pill">Climate Hazards</span>
+                <span class="pill">Climate Gentrification</span>
+                <span class="pill">Remote Sensing</span>
+                <span class="pill">GeoAI</span>
+                <span class="pill">Carbon Dynamics</span>
+              </div>
+
+              <div class="hero-actions-inline">
+                <a href="#publications" class="btn btn-primary"><i class="fa-solid fa-book-open"></i> Publications</a>
+                <a href="#projects" class="btn btn-secondary"><i class="fa-solid fa-diagram-project"></i> Research Projects</a>
+              </div>
+
+              <div class="hero-signature" aria-label="Research profile highlights">
+                <span><i class="fa-solid fa-earth-asia"></i> Human–Environment Systems</span>
+                <span><i class="fa-solid fa-satellite"></i> Spatial Data & Remote Sensing</span>
+                <span><i class="fa-solid fa-seedling"></i> Climate & Sustainability</span>
+              </div>
             </div>
           </div>
         </section>
