@@ -308,6 +308,20 @@
       pointer-events: none;
     }
 
+    .hero-with-photo {
+      min-height: 440px;
+      background:
+        url("assets/images/hero-bg.jpg") center 38% / cover no-repeat;
+    }
+
+    .hero-with-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(248, 252, 255, 0.93) 0%, rgba(248, 252, 255, 0.88) 34%, rgba(248, 252, 255, 0.72) 62%, rgba(248, 252, 255, 0.50) 100%);
+      pointer-events: none;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -893,6 +907,116 @@
       outline-offset: 3px;
     }
 
+
+
+    /* Portfolio card grid for Experience & Projects */
+    .compact-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .compact-link {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 178px;
+      padding: 18px;
+      overflow: hidden;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(98, 182, 255, 0.12), transparent 42%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 255, 0.86));
+      border: 1px solid rgba(47, 128, 237, 0.10);
+      box-shadow: 0 10px 24px rgba(30, 73, 110, 0.045);
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease, background 0.24s ease;
+    }
+
+    .compact-link::after {
+      content: "";
+      position: absolute;
+      right: -24px;
+      bottom: -30px;
+      width: 92px;
+      height: 92px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(112, 220, 208, 0.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .compact-link:hover {
+      transform: translateY(-5px);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(98, 182, 255, 0.18), transparent 44%),
+        linear-gradient(145deg, #ffffff, #f5fbff);
+      border-color: rgba(47, 128, 237, 0.22);
+      box-shadow: 0 18px 34px rgba(30, 73, 110, 0.10);
+    }
+
+    .compact-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #ffffff, #e7f5ff);
+      font-size: 1.18rem;
+      box-shadow:
+        inset 0 0 0 1px rgba(47, 128, 237, 0.07),
+        0 8px 18px rgba(47, 128, 237, 0.07);
+    }
+
+    .compact-text {
+      min-width: 0;
+      width: 100%;
+      padding-right: 4px;
+    }
+
+    .compact-text strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.91rem;
+      line-height: 1.42;
+      letter-spacing: -0.01em;
+    }
+
+    .compact-text span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.45;
+    }
+
+    .compact-arrow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-top: auto;
+      margin-left: auto;
+      border-radius: 999px;
+      background: rgba(47, 128, 237, 0.08);
+      color: #6f9ec3;
+      font-size: 0.72rem;
+      transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .compact-link:hover .compact-arrow {
+      transform: translateX(3px);
+      color: var(--accent);
+      background: rgba(47, 128, 237, 0.13);
+    }
+
     @media (max-width: 1120px) {
       .layout {
         grid-template-columns: 1fr;
@@ -905,6 +1029,14 @@
     }
 
     @media (max-width: 920px) {
+      .compact-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .hero-stats,
       .about-grid,
       .focus-grid,
@@ -927,6 +1059,18 @@
     }
 
     @media (max-width: 680px) {
+      .compact-list {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compact-link {
+        min-height: 0;
+      }
+
       .shell {
         width: min(var(--max), calc(100% - 18px));
         padding: 18px 0 34px;
@@ -1025,9 +1169,9 @@
             <a href="#focus" class="nav-link"><i class="fa-solid fa-microscope"></i> Research Interests</a>
             <a href="#work" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a>
             <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
             <a href="#projects" class="nav-link"><i class="fa-solid fa-diagram-project"></i> Projects</a>
             <a href="#talks" class="nav-link"><i class="fa-solid fa-microphone-lines"></i> Talks</a>
-            <a href="#publications" class="nav-link"><i class="fa-solid fa-book"></i> Publications</a>
             <a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Skills</a>
             <a href="#contact" class="nav-link"><i class="fa-solid fa-envelope"></i> Contact</a>
           </nav>
@@ -1035,7 +1179,7 @@
       </aside>
 
       <main class="main">
-        <section class="hero panel reveal">
+        <section class="hero hero-with-photo panel reveal">
           <span class="eyebrow">
             <i class="fa-solid fa-sparkles"></i>
             Research Portfolio
@@ -1240,153 +1384,74 @@
             <div>
               <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Experience</h2>
               <p class="section-subtitle">
-                Research, teaching, mentoring, and interdisciplinary academic collaboration across geography,
-                geospatial analysis, and environmental studies.
+                Selected academic, research, teaching, and mentoring experience. Click an item to view details.
               </p>
             </div>
           </div>
 
-          <div class="detail-list">
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Postdoctoral Researcher</h3>
-                  <div class="detail-meta">
-                    Department of Geography and Resource Management, The Chinese University of Hong Kong, Hong Kong SAR, China
-                  </div>
-                </div>
-                <span class="time-chip">2025/08 – Present</span>
+          <div class="compact-list">
+            <a href="work.html#cuhk-postdoc" class="compact-link">
+              <div class="compact-icon">🔬</div>
+              <div class="compact-text">
+                <strong>Postdoctoral Researcher</strong>
+                <span>The Chinese University of Hong Kong · 2025/08 – Present</span>
               </div>
-              <p>
-                My research centers on climate change–induced hazards in coastal regions,
-                using multi-source data to assess and model risks, with a particular focus
-                on climate gentrification.
-              </p>
-              <ul>
-                <li>Evaluate coastal climate hazards, especially sea-level rise, urban flooding, and extreme heat.</li>
-                <li>Develop analytical frameworks for assessing climate gentrification and investigating its driving mechanisms.</li>
-                <li>Contribute as a key team member to the preparation of research proposals for competitive funding applications.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Academic Researcher</h3>
-                  <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
-                </div>
-                <span class="time-chip">2024/07 – 2025/07</span>
+            <a href="work.html#nju-researcher" class="compact-link">
+              <div class="compact-icon">🏛️</div>
+              <div class="compact-text">
+                <strong>Academic Researcher</strong>
+                <span>Nanjing University · 2024/07 – 2025/07</span>
               </div>
-              <p>
-                Modeled and estimated carbon sinks in China’s terrestrial ecosystems using
-                big-data techniques, with a focus on land use change and its ecological and
-                environmental impacts.
-              </p>
-              <ul>
-                <li>Estimated carbon sinks in China’s terrestrial ecosystems using multi-source remote sensing data and machine learning models.</li>
-                <li>Assessed land use change and carbon dynamics along the Yangtze River.</li>
-                <li>Contributed as a key team member to the preparation of research proposals for competitive funding applications.</li>
-                <li>Contributed as a core team member to the <em>Guidelines for the Integrative Technology of Ecological Restoration Area Identification and Carbon Sequestration Enhancement Benefits Assessment</em>.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Visiting Scholar</h3>
-                  <div class="detail-meta">Center for Geographical Analysis (CGA), Harvard University, MA, USA</div>
-                </div>
-                <span class="time-chip">2022/09 – 2023/09</span>
+            <a href="work.html#harvard-visiting" class="compact-link">
+              <div class="compact-icon">🗺️</div>
+              <div class="compact-text">
+                <strong>Visiting Scholar</strong>
+                <span>Harvard University · 2022/09 – 2023/09</span>
               </div>
-              <p>
-                Contributed to the development of KNIME, a big-data analytics platform, in
-                the Spatial Data Lab using remote sensing image processing and GIS techniques.
-              </p>
-              <ul>
-                <li>Played a key role in the Geo-Image development project within the CGA KNIME node team by designing a framework for satellite image processing nodes.</li>
-                <li>Taught the theory and applications of Geo-Image in KNIME and supervised hands-on workshop training.</li>
-                <li>
-                  Selected teaching experience includes:
-                  <ul>
-                    <li><em>Applications of Remote Sensing Data in Carbon Density Estimation</em>, Workshop on Spatiotemporal Innovation, Harvard University (July 2023)</li>
-                    <li><em>Applications of Geo-AI Models to Remote Sensing Data Using KNIME</em>, Workshop on Spatiotemporal Innovation and Data Modeling, Harbin, China (October 2023)</li>
-                  </ul>
-                </li>
-                <li>Served as a teaching assistant for GIS-related courses, supporting undergraduate students in the use of ArcGIS Pro and QGIS. Courses included <em>Basic Introduction to GIS</em> (Fall 2023), <em>GIS Workshop</em> (Fall 2023), <em>Cartography Workshop Using ArcGIS Pro</em> (Spring 2023), and <em>Harvard GIS Institute</em> (Winter 2022).</li>
-                <li>Presented project progress at weekly meetings and major academic or project events.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Visiting Scholar</h3>
-                  <div class="detail-meta">
-                    The Center for International Earth Science Information Network (CIESIN),
-                    Columbia University, NY, USA
-                  </div>
-                </div>
-                <span class="time-chip">2018/02 – 2018/08</span>
+            <a href="work.html#columbia-visiting" class="compact-link">
+              <div class="compact-icon">🌎</div>
+              <div class="compact-text">
+                <strong>Visiting Scholar</strong>
+                <span>Columbia University · 2018/02 – 2018/08</span>
               </div>
-              <p>
-                Used integrated environmental and ecological indicators to evaluate coastal
-                environmental change and its human impacts.
-              </p>
-              <ul>
-                <li>Developed a comprehensive marine health index incorporating environmental, ecological, water quality, fisheries, economic, and human well-being indicators to evaluate the health of Shanghai’s nearshore waters and coastline.</li>
-                <li>Assessed the impacts of coastal environmental change on human systems and well-being.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Research and Teaching Assistant</h3>
-                  <div class="detail-meta">Institute of Scientific Research and Education, Zhejiang University, China</div>
-                </div>
-                <span class="time-chip">2019/07 – 2020/07</span>
+            <a href="work.html#zju-assistant" class="compact-link">
+              <div class="compact-icon">🧑‍🏫</div>
+              <div class="compact-text">
+                <strong>Research and Teaching Assistant</strong>
+                <span>Zhejiang University · 2019/07 – 2020/07</span>
               </div>
-              <p>
-                Worked in a demanding, fast-paced academic environment that required strong
-                multitasking, teamwork, and communication with faculty and students.
-                Responsibilities included graduate academic administration and collaboration
-                with researchers on institutional reports.
-              </p>
-              <ul>
-                <li>Served as the department’s sole teaching assistant, coordinating graduate course schedules, final examinations, and the full academic training process, including thesis proposals, pre-defense, defense, and graduation.</li>
-                <li>Managed faculty teaching schedules, handled student administrative affairs, and provided in-class teaching support.</li>
-                <li>Supported the Institute of Higher Education by planning research activities, drafting activity proposals, coordinating staffing and schedules for major annual conferences, and preparing conference reports.</li>
-                <li>Played a key role in organizing the college’s annual gathering for faculty, staff, and students.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Career Mentor</h3>
-                  <div class="detail-meta">School of Geography and Ocean Science, Nanjing University, China</div>
-                </div>
-                <span class="time-chip">2025/03 – 2027/08</span>
+            <a href="work.html#career-mentor" class="compact-link">
+              <div class="compact-icon">🌟</div>
+              <div class="compact-text">
+                <strong>Career Mentor</strong>
+                <span>Nanjing University · 2025/03 – 2027/08</span>
               </div>
-              <ul>
-                <li>Provided career guidance to undergraduate and graduate students across the department, including employment advising, presentations at career forums, and individualized recommendations based on students’ academic backgrounds and career goals.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="detail-item">
-              <div class="detail-top">
-                <div>
-                  <h3>Project Mentor</h3>
-                  <div class="detail-meta">Spatial Data Lab (SDL), Center for Geographic Analysis (CGA), Harvard University, USA</div>
-                </div>
-                <span class="time-chip">2024/07 – 2025/07</span>
+            <a href="work.html#project-mentor" class="compact-link">
+              <div class="compact-icon">🧭</div>
+              <div class="compact-text">
+                <strong>Project Mentor</strong>
+                <span>Harvard CGA Spatial Data Lab · 2024/07 – 2025/07</span>
               </div>
-              <ul>
-                <li>Supervised undergraduate intern Alex Rop in using KNIME to complete the project <em>Drought Index Monitoring Using Multi-Source Remote Sensing Data Based on KNIME Workflows</em>.</li>
-                <li>Guided the use of Landsat imagery for long-term drought analysis in Nairobi, Africa, and Inner Mongolia, China.</li>
-                <li>Helped develop a reproducible and transferable workflow that can be adapted for drought monitoring in other regions.</li>
-              </ul>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
           </div>
         </section>
 
@@ -1450,89 +1515,116 @@
           </div>
         </section>
 
+        <section id="publications" class="section panel reveal">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title"><i class="fa-solid fa-book"></i> Selected First-Author Publications</h2>
+            </div>
+          </div>
+
+          <div class="pub-list">
+            <article class="pub">
+              <div class="year">2026</div>
+              <strong>High-Resolution Assessment of Terrestrial Carbon Storage and Restoration Benefits in China, 1990–2023.</strong>
+              <span>Environmental Science &amp; Technology</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2025</div>
+              <strong>Land use changes and their effects on poverty in Inner Mongolia, northern China.</strong>
+              <span>Geography and Sustainability, 6(4): 100269</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2024</div>
+              <strong>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</strong>
+              <span>Plant and Soil, 500: 495-514</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2022</div>
+              <strong>The United States and China on the paths and policies to carbon neutrality.</strong>
+              <span>Journal of Environmental Management, 320: 115785 · ESI Highly Cited Paper</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2021</div>
+              <strong>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</strong>
+              <span>Ecological Indicators, 126: 10765</span>
+            </article>
+
+            <article class="pub">
+              <div class="year">2019</div>
+              <strong>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</strong>
+              <span>Land Use Policy, 87: 104080 · ESI Highly Cited Paper</span>
+            </article>
+          </div>
+        </section>
+
         <section id="projects" class="section panel reveal">
           <div class="section-head">
             <div>
               <h2 class="section-title"><i class="fa-solid fa-diagram-project"></i> Selected Projects</h2>
               <p class="section-subtitle">
-                Project experience presented as concise academic workflows to show research focus,
-                analytical methods, and applied outputs.
+                Selected research projects across carbon dynamics, land use, ecological restoration, and geospatial data science. Click an item to view details.
               </p>
             </div>
           </div>
 
-          <div class="flow-list">
-            <article class="flow-card">
-              <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
-              <p class="flow-intro">
-                Focused on carbon sink estimation, ecosystem degradation analysis, and policy-oriented recommendations for low-carbon development.
-              </p>
-              <div class="flow">
-                <div class="step"><div class="emoji">🛰️</div><strong>Regional data integration</strong><span>Assembled ecosystem, carbon, and geospatial datasets across the Yangtze River region.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📊</div><strong>Carbon sink modeling</strong><span>Led carbon sink modeling and estimation to quantify ecosystem carbon dynamics.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🗺️</div><strong>Spatiotemporal analysis</strong><span>Identified degraded ecosystems and tracked long-term changes from 1990 onward.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📌</div><strong>Applied recommendations</strong><span>Generated policy and technical recommendations for restoration and low-carbon strategies.</span></div>
+          <div class="compact-list projects-grid">
+            <a href="projects.html#yangtze-restoration" class="compact-link">
+              <div class="compact-icon">🌳</div>
+              <div class="compact-text">
+                <strong>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</strong>
+                <span>Carbon sinks · Ecosystem restoration</span>
               </div>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="flow-card">
-              <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
-              <p class="flow-intro">
-                Examined land use change and carbon cycle dynamics using open satellite data and carbon-related modeling approaches.
-              </p>
-              <div class="flow">
-                <div class="step"><div class="emoji">🌍</div><strong>Satellite data input</strong><span>Used open-source satellite data to support land use and carbon-related analysis.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🤖</div><strong>Model development</strong><span>Developed carbon-related models to examine land use change and carbon cycle dynamics.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📈</div><strong>Pattern assessment</strong><span>Assessed spatiotemporal patterns of land use change and their implications for carbon neutrality.</span></div>
+            <a href="projects.html#climate-landuse" class="compact-link">
+              <div class="compact-icon">🌍</div>
+              <div class="compact-text">
+                <strong>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</strong>
+                <span>Land use change · Carbon neutrality</span>
               </div>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="flow-card">
-              <h3>Ecological Carbon Sink Potential Assessment and Carbon Emission Decrease Path in Shanghai’s New City Construction</h3>
-              <p class="flow-intro">
-                Supported carbon sink assessment and emissions reduction planning for sustainable urban development in Shanghai.
-              </p>
-              <div class="flow">
-                <div class="step"><div class="emoji">📝</div><strong>Project documentation</strong><span>Co-authored project proposals and summary reports for carbon sink assessment and emissions reduction planning.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🌱</div><strong>Carbon strategy support</strong><span>Evaluated pathways for enhancing carbon sequestration and reducing emissions in new city development.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🏙️</div><strong>Policy recommendations</strong><span>Produced technical recommendations for local government on low-carbon development pathways.</span></div>
+            <a href="projects.html#shanghai-carbon" class="compact-link">
+              <div class="compact-icon">🏙️</div>
+              <div class="compact-text">
+                <strong>Ecological Carbon Sink Potential Assessment and Carbon Emission Decrease Path in Shanghai’s New City Construction</strong>
+                <span>Urban carbon sinks · Low-carbon planning</span>
               </div>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="flow-card">
-              <h3>Spatial Planning in Inner Mongolia’s Yellow River Basin</h3>
-              <p class="flow-intro">
-                Investigated land use dynamics, ecological vulnerability, and planning implications under urban expansion scenarios.
-              </p>
-              <div class="flow">
-                <div class="step"><div class="emoji">🏞️</div><strong>Land use modeling</strong><span>Modeled land use and ecosystem dynamics under urban expansion scenarios.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">⚠️</div><strong>Vulnerability assessment</strong><span>Assessed ecological vulnerability and examined its implications for planning and policy.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📄</div><strong>Planning support</strong><span>Prepared analytical reports to support sustainable spatial planning in the region.</span></div>
+            <a href="projects.html#inner-mongolia" class="compact-link">
+              <div class="compact-icon">🗺️</div>
+              <div class="compact-text">
+                <strong>Spatial Planning in Inner Mongolia’s Yellow River Basin</strong>
+                <span>Land use dynamics · Spatial planning</span>
               </div>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
 
-            <article class="flow-card">
-              <h3>Ecological Protection of Shanghai’s Coastal Waters and the Yangtze River Estuary</h3>
-              <p class="flow-intro">
-                Evaluated coastal ecosystem health and environmental change to support ecological protection and sustainable development planning.
-              </p>
-              <div class="flow">
-                <div class="step"><div class="emoji">🧭</div><strong>Geospatial processing</strong><span>Processed geospatial datasets for coastal and estuarine environmental analysis.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🌊</div><strong>Environmental modeling</strong><span>Conducted environmental modeling to evaluate coastal ecosystem health.</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🌿</div><strong>Change assessment</strong><span>Assessed environmental change to support ecological protection and sustainable development planning.</span></div>
+            <a href="projects.html#shanghai-coastal" class="compact-link">
+              <div class="compact-icon">🌊</div>
+              <div class="compact-text">
+                <strong>Ecological Protection of Shanghai’s Coastal Waters and the Yangtze River Estuary</strong>
+                <span>Coastal ecosystems · Environmental assessment</span>
               </div>
-            </article>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
+
+            <a href="projects.html#harvard-sdl" class="compact-link">
+              <div class="compact-icon">🧪</div>
+              <div class="compact-text">
+                <strong>Spatial Data Lab Project</strong>
+                <span>Harvard University · Geo-Image & KNIME workflows</span>
+              </div>
+              <i class="fa-solid fa-chevron-right compact-arrow" aria-hidden="true"></i>
+            </a>
           </div>
         </section>
 
@@ -1595,51 +1687,6 @@
           </div>
         </section>
 
-        <section id="publications" class="section panel reveal">
-          <div class="section-head">
-            <div>
-              <h2 class="section-title"><i class="fa-solid fa-book"></i> Selected First-Author Publications</h2>
-            </div>
-          </div>
-
-          <div class="pub-list">
-            <article class="pub">
-              <div class="year">2026</div>
-              <strong>High-Resolution Assessment of Terrestrial Carbon Storage and Restoration Benefits in China, 1990–2023.</strong>
-              <span>Environmental Science &amp; Technology</span>
-            </article>
-
-            <article class="pub">
-              <div class="year">2025</div>
-              <strong>Land use changes and their effects on poverty in Inner Mongolia, northern China.</strong>
-              <span>Geography and Sustainability, 6(4): 100269</span>
-            </article>
-
-            <article class="pub">
-              <div class="year">2024</div>
-              <strong>Changes in sediment N mineralization and immobilization in association with Spartina alterniflora invasion in mangrove wetland.</strong>
-              <span>Plant and Soil, 500: 495-514</span>
-            </article>
-
-            <article class="pub">
-              <div class="year">2022</div>
-              <strong>The United States and China on the paths and policies to carbon neutrality.</strong>
-              <span>Journal of Environmental Management, 320: 115785 · ESI Highly Cited Paper</span>
-            </article>
-
-            <article class="pub">
-              <div class="year">2021</div>
-              <strong>Application of the Ocean Health Index to Assess Ecosystem Health for the Coastal Areas of Shanghai, China.</strong>
-              <span>Ecological Indicators, 126: 10765</span>
-            </article>
-
-            <article class="pub">
-              <div class="year">2019</div>
-              <strong>Changing Urban Green Spaces in Shanghai: Trends, Drivers and Policy Implications.</strong>
-              <span>Land Use Policy, 87: 104080 · ESI Highly Cited Paper</span>
-            </article>
-          </div>
-        </section>
 
         <section id="skills" class="section panel reveal">
           <div class="section-head">
