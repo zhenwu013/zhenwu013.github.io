@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zhen Wu | Projects</title>
   <link rel="stylesheet" href="assets/css/cv.css" />
+
+  <style>
+    /* Anchor target highlight */
+    .flow-card:target {
+      outline: 2px solid rgba(47, 128, 237, 0.28);
+      box-shadow: 0 14px 34px rgba(47, 128, 237, 0.10);
+    }
+  </style>
 </head>
 <body>
   <header class="nav">
@@ -38,46 +46,80 @@
         <div class="label">Projects</div>
         <div class="card">
           <h2>Selected Research Projects</h2>
-          <p class="note">Each project is shown with a short description and a visual workflow.</p>
+          <p class="note">Detailed project workflows. Links from the homepage jump directly to the selected project.</p>
 
           <div class="flow-list">
-            <div class="flow-card">
+            <div class="flow-card" id="yangtze-restoration" style="scroll-margin-top: 100px;">
               <h3>Restoration of Degraded Ecosystems and Carbon Sink Dynamics Along the Yangtze River</h3>
-              <p>Focused on carbon sink estimation, long-term spatial analysis, and policy-oriented outputs.</p>
+              <p>Focused on carbon sink estimation, ecosystem degradation analysis, and policy-oriented recommendations for low-carbon development.</p>
               <div class="flow">
-                <div class="step"><div class="emoji">🛰️</div><strong>Collect data</strong><span>Ecosystem and carbon-related spatial datasets</span></div>
+                <div class="step"><div class="emoji">🛰️</div><strong>Regional data integration</strong><span>Assembled ecosystem, carbon, and geospatial datasets across the Yangtze River region.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📊</div><strong>Model carbon sink</strong><span>Estimate spatial and temporal carbon sink dynamics</span></div>
+                <div class="step"><div class="emoji">📊</div><strong>Carbon sink modeling</strong><span>Led carbon sink modeling and estimation to quantify ecosystem carbon dynamics.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🗺️</div><strong>Identify patterns</strong><span>Track degraded ecosystems from 1990 onward</span></div>
+                <div class="step"><div class="emoji">🗺️</div><strong>Spatiotemporal analysis</strong><span>Identified degraded ecosystems and tracked long-term changes from 1990 onward.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📌</div><strong>Support policy</strong><span>Translate results into low-carbon recommendations</span></div>
+                <div class="step"><div class="emoji">📌</div><strong>Applied recommendations</strong><span>Generated policy and technical recommendations for restoration and low-carbon strategies.</span></div>
               </div>
             </div>
 
-            <div class="flow-card">
+            <div class="flow-card" id="climate-landuse" style="scroll-margin-top: 100px;">
               <h3>Impacts of Climate Change on Land Use in China and Carbon Neutral Response</h3>
-              <p>Built models linking land use transitions, climate change, and carbon neutrality potential.</p>
+              <p>Examined land use change and carbon cycle dynamics using open satellite data and carbon-related modeling approaches.</p>
               <div class="flow">
-                <div class="step"><div class="emoji">🌍</div><strong>Use satellite data</strong><span>Assemble open land use and carbon datasets</span></div>
+                <div class="step"><div class="emoji">🌍</div><strong>Satellite data input</strong><span>Used open-source satellite data to support land use and carbon-related analysis.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🤖</div><strong>Develop models</strong><span>Analyze land use transition and carbon cycle change</span></div>
+                <div class="step"><div class="emoji">🤖</div><strong>Model development</strong><span>Developed carbon-related models to examine land use change and carbon cycle dynamics.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">📈</div><strong>Evaluate potential</strong><span>Assess carbon neutrality pathways</span></div>
-                <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🧩</div><strong>Coordinate research</strong><span>Support method design and collaboration</span></div>
+                <div class="step"><div class="emoji">📈</div><strong>Pattern assessment</strong><span>Assessed spatiotemporal patterns of land use change and their implications for carbon neutrality.</span></div>
               </div>
             </div>
 
-            <div class="flow-card">
+            <div class="flow-card" id="shanghai-carbon" style="scroll-margin-top: 100px;">
+              <h3>Ecological Carbon Sink Potential Assessment and Carbon Emission Decrease Path in Shanghai’s New City Construction</h3>
+              <p>Supported carbon sink assessment and emissions reduction planning for sustainable urban development in Shanghai.</p>
+              <div class="flow">
+                <div class="step"><div class="emoji">📝</div><strong>Project documentation</strong><span>Co-authored project proposals and summary reports for carbon sink assessment and emissions reduction planning.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌱</div><strong>Carbon strategy support</strong><span>Evaluated pathways for enhancing carbon sequestration and reducing emissions in new city development.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🏙️</div><strong>Policy recommendations</strong><span>Produced technical recommendations for local government on low-carbon development pathways.</span></div>
+              </div>
+            </div>
+
+            <div class="flow-card" id="inner-mongolia" style="scroll-margin-top: 100px;">
+              <h3>Spatial Planning in Inner Mongolia’s Yellow River Basin</h3>
+              <p>Investigated land use dynamics, ecological vulnerability, and planning implications under urban expansion scenarios.</p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🏞️</div><strong>Land use modeling</strong><span>Modeled land use and ecosystem dynamics under urban expansion scenarios.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">⚠️</div><strong>Vulnerability assessment</strong><span>Assessed ecological vulnerability and examined its implications for planning and policy.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">📄</div><strong>Planning support</strong><span>Prepared analytical reports to support sustainable spatial planning in the region.</span></div>
+              </div>
+            </div>
+
+            <div class="flow-card" id="shanghai-coastal" style="scroll-margin-top: 100px;">
+              <h3>Ecological Protection of Shanghai’s Coastal Waters and the Yangtze River Estuary</h3>
+              <p>Evaluated coastal ecosystem health and environmental change to support ecological protection and sustainable development planning.</p>
+              <div class="flow">
+                <div class="step"><div class="emoji">🧭</div><strong>Geospatial processing</strong><span>Processed geospatial datasets for coastal and estuarine environmental analysis.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌊</div><strong>Environmental modeling</strong><span>Conducted environmental modeling to evaluate coastal ecosystem health.</span></div>
+                <div class="arrow">➜</div>
+                <div class="step"><div class="emoji">🌿</div><strong>Change assessment</strong><span>Assessed environmental change to support ecological protection and sustainable development planning.</span></div>
+              </div>
+            </div>
+
+            <div class="flow-card" id="harvard-sdl" style="scroll-margin-top: 100px;">
               <h3>Spatial Data Lab Project, Harvard University</h3>
               <p>Combined tool development, workflow design, and workshop delivery for spatiotemporal data science.</p>
               <div class="flow">
-                <div class="step"><div class="emoji">🧱</div><strong>Build tools</strong><span>Develop Geo-Image tools and KNIME nodes</span></div>
+                <div class="step"><div class="emoji">🧱</div><strong>Build tools</strong><span>Develop Geo-Image tools and KNIME nodes.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🧪</div><strong>Create cases</strong><span>Design examples for satellite data workflows</span></div>
+                <div class="step"><div class="emoji">🧪</div><strong>Create cases</strong><span>Design examples for satellite data workflows.</span></div>
                 <div class="arrow">➜</div>
-                <div class="step"><div class="emoji">🎤</div><strong>Teach workshops</strong><span>Train researchers in workflow-based analysis</span></div>
+                <div class="step"><div class="emoji">🎤</div><strong>Teach workshops</strong><span>Train researchers in workflow-based analysis.</span></div>
               </div>
             </div>
           </div>
